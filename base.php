@@ -26,7 +26,7 @@
          <?php include 'side.php'; ?>
       </div>  <!-- end left navigation rail --> 
       
-      <div class="col-md-9">  <!-- start main content column -->
+      <div class="col-md-9">
          <ol class="breadcrumb">
            <li class="active"><a href="#">Home</a></li>
          </ol>
@@ -35,8 +35,7 @@
          <h1>Online Store</h1>
 
        
-      
-         <!-- start post summaries -->
+
          <div class="well">
             <div class="row">
 
