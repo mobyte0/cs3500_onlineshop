@@ -1,4 +1,7 @@
 <style>
+    #topHeaderRow {
+        padding-top: 10px;
+    }
 
     /* Modal Content/Box */
     .modal-content {
