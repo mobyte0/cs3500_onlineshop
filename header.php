@@ -107,7 +107,7 @@
       <div class="container">
          <div class="pull-right">
             <ul class="list-inline">
-              <li><a href="SignUp.php"><span class="glyphicon glyphicon-edit"></span> Sign Up</a></li>
+              <li><a href="signup.php"><span class="glyphicon glyphicon-edit"></span> Sign Up</a></li>
                 <li>
                     <a href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a>
 
