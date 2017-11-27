@@ -101,7 +101,7 @@
 <div class="container">
     <div class="row">
 
-        <form id="regForm" action="/home.php">
+        <form id="regForm" action="/index.php">
             <h1>Create Account:</h1>
             <!-- One "tab" for each step in the form: -->
             <div class="tab">Name:

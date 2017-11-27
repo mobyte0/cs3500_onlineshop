@@ -110,7 +110,7 @@
 
                     <div id="id01" class="modal">
 
-                        <form class="modal-content animate" action="/home.php">
+                        <form class="modal-content animate" action="/index.php">
 
                             <div class="profile">
 
@@ -176,7 +176,7 @@
            </div>
            <div class="navbar-collapse collapse">
              <ul class="nav navbar-nav">
-               <li><a href="home.php"> Home</a></li>
+               <li><a href="index.php"> Home</a></li>
                <li><a href="#">About Us</a></li>
                <li><a href="#">Specials</a></li>
                <li class="dropdown">

@@ -26,9 +26,6 @@
 
 
         <div class="col-md-9">  <!-- start main content column -->
-            <ol class="breadcrumb">
-                <li class="active"><a href="#">Home</a></li>
-            </ol>
 
             <div class="well">
 
@@ -63,7 +60,7 @@
                                 </div>
 
                                 <div class="item">
-                                    <img src="images/nintendo%20switch.png" alt="New York" style="width:100%;">
+                                    <img src="images/nintendo_switch.png" alt="New York" style="width:100%;">
                                     <div class="carousel-caption">
                                         <h3>Nintendo Switch</h3>
                                         <p>Nintendo's Current Generation Console</p>
@@ -89,9 +86,14 @@
 
             <div class="well">
                 <div class="row">
-
-
-
+                    <?php
+                    $files = glob("images/consoles/*.*");
+                    for ($i = 0; $i<count($files); $i++)
+                    {
+                        $pic = $files[$i];
+                        echo '<div class="col-md-3"><div class="list-group"><a href="SingleGame.php"><img class="img-thumbnail" src="'.$pic.'" alt="random image">'.'</a></div></div>';
+                    }
+                    ?>
 
                 </div>
             </div>
@@ -103,7 +105,7 @@
 
 
 
-                </div>  <!-- end main content column -->
+        </div>  <!-- end main content column -->
     </div>  <!-- end main content row -->
 </div>   <!-- end main content container -->
 
