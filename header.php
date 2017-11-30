@@ -1,107 +1,19 @@
-<style>
-    #topHeaderRow {
-        padding-top: 10px;
-    }
+<head>
+    <meta http-equiv="Content-Type" content="text/html;  charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Online</title>
 
-    /* Modal Content/Box */
-    .modal-content {
-        background-color: #fefefe;
-        margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-        border: 1px solid #888;
-        padding: 5em;
-        width: 50%; /* Could be more or less, depending on screen size */
-    }
+    <link href="bootstrap3/dist/bootstrap.css" rel="stylesheet">
 
-    #username[type=text], #pass[type=password] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-    }
+    <link href="bootstrap3/dist/bootstrap-theme.css" rel="stylesheet">
+    <link href="header.css" rel="stylesheet"/>
 
-    .cancelbtn {
-        margin-bottom: 10px;
-        margin-top:10px
+    <script src="bootstrap3/assets/js/html5shiv.js"></script>
+    <script src="bootstrap3/assets/js/respond.min.js"></script>
 
-    }
-
-    /* Center the image and position the close button */
-
-    .profile {
-        text-align: center;
-        margin: 24px 0 12px 0;
-        position: relative;
-    }
-
-    #profile {
-        width: 40%;
-        border-radius: 50%;
-    }
-
-    /* The Close Button (x) */
-    .close {
-        position: absolute;
-        right: 25px;
-        top: 0;
-        color: #000;
-        font-size: 35px;
-        font-weight: bold;
-    }
-
-    .close:hover,
-
-    .close:focus {
-        color: red;
-        cursor: pointer;
-    }
-
-    /* Add Zoom Animation */
-    .animate {
-        -webkit-animation: animatezoom 0.6s;
-        animation: animatezoom 0.6s
-    }
-
-
-    @-webkit-keyframes animatezoom {
-        from {-webkit-transform: scale(0)}
-        to {-webkit-transform: scale(1)}
-    }
-
-    @keyframes animatezoom {
-        from {transform: scale(0)}
-        to {transform: scale(1)}
-    }
-
-    /* Change styles for span and cancel button on extra small screens */
-    @media screen and (max-width: 300px) {
-        span.psw {
-            display: block;
-            float: none;
-        }
-    }
-
-    span.psw {
-        float: right;
-        padding-top: 16px;
-    }
-
-    #logIn {
-        margin-bottom: 10px;
-        margin-top:10px
-        padding: 14px 20px;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-    }
-    .contain{
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-</style>
-
+</head>
 <header>
    <div id="topHeaderRow">
       <div class="container">
@@ -113,32 +25,25 @@
 
                     <div id="id01" class="modal">
 
-                        <form class="modal-content animate" action="/index.php">
-
-                            <div class="profile">
+                        <form class="modal-content animate" method="POST">
 
 
                                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 
 
-                                <img id="profile" src="images/profile.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-
-
 
                             <div class="contain">
 
-                                <label><b>Username</b></label>
+                                <label><b>Email</b></label>
 
-                                <input class="input" id="username" type="text" placeholder="Enter Username" name="uname" required>
+                                <input class="input" id="email" type="email" placeholder="Enter Email" name="email" required>
 
                                 <label><b>Password</b></label>
 
                                 <input id="pass" type="password" placeholder="Enter Password" name="psw" required>
 
 
-                                <button id="logIn" class="btn btn-primary" type="submit">Login</button>
+                                <button id="logIn" class="btn btn-primary" name="btnLogin" type="submit">Login</button>
 
                                 <input id="checkbox" type="checkbox" checked="checked"> Remember me
 
@@ -155,11 +60,8 @@
                     </div>
 
 
-
-
-
                         </li>
-<!--                <li><a href="#">Log Out</a></li> -->
+                <li><a href="#">Log Out</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</a></li>
             </ul>
          </div>
@@ -175,36 +77,35 @@
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
              </button>
-             <a class="navbar-brand" href="#">Online Store</a>
+
            </div>
+             <div>
+                 <ul>
+             <li class="navbar-brand list-unstyled" ><a href="home.php"><img style="width: 50px; height: 50px;" src="images/logo.png" title="logo" align="logo"/> </a></li>
+                 </ul>
+             </div>
            <div class="navbar-collapse collapse">
              <ul class="nav navbar-nav">
-               <li><a href="index.php"> Home</a></li>
-               <li><a href="#">About Us</a></li>
-               <li><a href="#">Specials</a></li>
-               <li class="dropdown">
-                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Store <b class="caret"></b></a>
-                 <ul class="dropdown-menu">
-                   <li><a href="#">Consoles</a></li>
-                     <li class="divider"></li>
-                     <li><a href="#">PC</a></li>
-                     <li class="divider"></li>
-                   <li><a href="VideoGames.php">VideoGames</a></li>
-                 </ul>
-               </li>
+                 <li style="margin-top: 1em;" ><a href="home.php"> Oracle</a></li>
+                 <li style="margin-top: 1em;"><a href="home.php"> Home</a></li>
+                 <li style="margin-top: 1em;"><a href="AboutUs.php">About Us</a></li>
+                 <li style="margin-top: 1em;"><a href="Consoles.php">Consoles</a></li>
+                 <li style="margin-top: 1em;"><a href="VideoGames.php">VideoGames</a></li>
              </ul>
            </div><!-- end navbar collapse -->
-                 <div class="panel-body"><!-- this is the search bar -->
-                     <form>
-                         <div class="input-group">
-                             <input type="text" class="form-control" placeholder="search ...">
-                             <span class="input-group-btn">
-                    <button class="btn btn-warning" type="button"><span class="glyphicon glyphicon-search"></span>
-                    </button>
-                  </span>
-                         </div>
-                     </form>
 
+             <div class="panel-body"><!-- this is the search bar -->
+                 <form method="post">
+                     <div class="input-group">
+                         <input type="text" class="form-control" placeholder="search ...">
+                         <span class="input-group-btn">
+                             <button class="btn btn-warning" type="button">
+                                 <span class="glyphicon glyphicon-search"></span>
+                             </button>
+                         </span>
+                     </div>
+                 </form>
+             </div>
          </nav>
       </div>
     </div>  <!-- end navbar -->
@@ -216,7 +117,7 @@
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-        if (event.target == modal) {
+        if (event.target === modal) {
             modal.style.display = "none";
         }
     }

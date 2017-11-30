@@ -1,22 +1,23 @@
-<footer>
+<script src="ShoppingCart.js"></script>
+
+
+<footer class="panel-footer">
    <div class="container">
       <div class="row">
         <div class="col-md-4">
             <h4>More From Online Store</h4>
             <ul class="nav nav-pills nav-stacked">
                  <li><a href="#">Special Tokens</a></li>
-                 <li><a href="#">Accessories</a></li>
-                 <li><a href="#">Steam Gift Cards</a></li>
-                 <li><a href="#">Collectors Editions</a></li>
+                <li><a href="Consoles.php">Consoles</a></li>
+                <li><a href="VideoGames.php">Video Games</a></li>
                </ul>  
         </div>
         <div class="col-md-4">
             <h4>Links</h4>
             <nav>
                <ul class="nav nav-pills nav-stacked">
-                 <li><a href="index.php">Home</a></li>
-                 <li><a href="#">About</a></li>
-                 <li><a href="#">Browse</a></li>
+                 <li><a href="home.php">Home</a></li>
+                 <li><a href="AboutUs.php">About</a></li>
                  <li><a href="#">Search</a></li>
                </ul>            
             </nav>               

@@ -1,28 +1,17 @@
 <?php
+
 $user = 'ibrahimitani';
-$pass = 'Chnageme90.';
+$pass = 'Changeme90.';
 $db = 'cs3500_StoreDB';
 
 $db = new mysqli('localhost', $user, $pass, $db) or die ("Unable to connect");
+
+
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html;  charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Online</title>
-
-    <link href="bootstrap3/dist/bootstrap.css" rel="stylesheet">
-
-    <link href="bootstrap3/dist/bootstrap-theme.css" rel="stylesheet">
-
-    <script src="bootstrap3/assets/js/html5shiv.js"></script>
-    <script src="bootstrap3/assets/js/respond.min.js"></script>
-
-</head>
 
 <body>
 <?php include 'header.php'; ?>
@@ -60,7 +49,7 @@ $db = new mysqli('localhost', $user, $pass, $db) or die ("Unable to connect");
                                 </div>
 
                                 <div class="item">
-                                    <img src="images/xbox-one.jpg" alt="XboxOne" style="width:100%;">
+                                    <img src="images/xboxonex.jpg" alt="XboxOne" style="width:100%;">
                                     <div class="carousel-caption">
                                         <h3>Xbox One</h3>
                                         <p>Microsoft's Current Generation Console</p>
@@ -96,12 +85,17 @@ $db = new mysqli('localhost', $user, $pass, $db) or die ("Unable to connect");
                 <div class="row">
 
                     <?php
-                    $files = glob("images/randomImages/*.*");
-                  for ($i = 0; $i < 4; $i++) {
-                        $pic = $files[array_rand($files)];
-                        echo '<div class="col-md-3"><div class="list-group"><a href="SingleGame.php"><img class="img-thumbnail" src="'.$pic.'" alt="random image">'.'</a></div></div>';
-                 }
-                    ?>
+
+                    $sql_display_four = mysqli_query($db, "SELECT * FROM `Product` ORDER BY RAND() LIMIT 4;");
+                    while($pull_data = $sql_display_four->fetch_assoc()) {
+                        echo '<div class="col-md-3"><div class="list-group"><a href="SingleGame.php?id='. $pull_data['ProductID'] .'"><img class="img-thumbnail" src="images/Covers/'.$pull_data['ImagePath'].'" alt="random image">'.'</a></div></div>';
+                    }
+//                    $files = glob("images/randomImages/*.*");
+//                  for ($i = 0; $i < 4; $i++) {
+//                        $pic = $files[array_rand($files)];
+//                        echo '<div class="col-md-3"><div class="list-group"><a href="SingleGame.php"><img class="img-thumbnail" src="'.$pic.'" alt="random image">'.'</a></div></div>';
+//                 }
+//                    ?>
 
                 </div>
             </div>
