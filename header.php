@@ -19,7 +19,7 @@
       <div class="container">
          <div class="pull-right">
             <ul class="list-inline">
-              <li><a href="SignUp.php"><span class="glyphicon glyphicon-edit"></span> Sign Up</a></li>
+              <li><a href="signup.php"><span class="glyphicon glyphicon-edit"></span> Sign Up</a></li>
                 <li>
                     <a href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a>
 
@@ -77,7 +77,11 @@
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
              </button>
+<<<<<<< HEAD
 
+=======
+             <a class="navbar-brand" href="index.php">Online Store</a>
+>>>>>>> 3745117b1306efcad50656d08db0fd2bd428f95e
            </div>
              <div>
                  <ul>
