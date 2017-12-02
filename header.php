@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-$user = 'ibrahimitani';
-$pass = 'itani90';
+$user = 'root';
+$pass = '';
 $db = 'cs3500_StoreDB';
 
 $db = new mysqli('localhost', $user, $pass, $db) or die ("Unable to connect");
