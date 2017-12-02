@@ -5,13 +5,13 @@
 // this will be used for rating games based on weighted average
 
 
-$user = 'ibrahimitani';
-$pass = 'Changeme90.';
+$user = 'root';
+$pass = '';
 $db = 'cs3500_StoreDB';
 
 $db = new mysqli('localhost', $user, $pass, $db) or die ("Unable to connect");
 
-$query_favorite = mysqli_query($db, "SELECT DISTINCT ProductID FROM `ProductRating` WHERE Rating BETWEEN 4 AND 5 LIMIT 9");
+$query_favorite = mysqli_query($db, "SELECT AVG(Rating) AS AVG_RATING, ProductID FROM ProductRating GROUP BY ProductID HAVING AVG(Rating) > 4.0 LIMIT 9");
 $number_fav = mysqli_num_rows($query_favorite);
 
 $path_list = array();

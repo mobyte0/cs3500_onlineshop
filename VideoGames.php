@@ -1,11 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+<?php include 'header.php'; ?>
 <?php
-
-$user = 'ibrahimitani';
-$pass = 'Changeme90.';
-$db = 'cs3500_StoreDB';
-
-$db = new mysqli('localhost', $user, $pass, $db) or die ("Unable to connect");
-
 
 // to display pictures with no filtering
 $display_all = mysqli_query($db,"Select * from `Product`;");
@@ -21,16 +19,6 @@ $display_console = mysqli_query($db, "SELECT DISTINCT Platform FROM `Product`");
 
 
 ?>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<body>
-
-<?php include 'header.php'; ?>
-
 <div class="container">  <!-- start main content container -->
     <div class="row">  <!-- start main content row -->
         <div class="col-md-3">  <!-- start left navigation rail column -->
@@ -146,7 +134,13 @@ $display_console = mysqli_query($db, "SELECT DISTINCT Platform FROM `Product`");
             }else {
                  while ($pull_data = $display_all->fetch_assoc()) {
 
-                        echo '<div class="col-md-3"><div class="list-group"><a href="SingleGame.php?id='. $pull_data['ProductID'] .'"><img class="img-thumbnail" src="images/Covers/' . $pull_data['ImagePath'] . '" alt="random image">' . '</a></div></div>';
+                     echo '<div class="col-md-3">'.
+                                '<div class="list-group" style="background: white;">'.
+                                    '<a href="SingleGame.php?id='. $pull_data['ProductID'] .'">'.
+                                        '<img class="img-thumbnail" src="images/Covers/' . $pull_data['ImagePath'] . '" alt="random image">'.
+                                    '</a>'.
+                                '</div>'.
+                                '</div>';
 
                     }
 

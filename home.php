@@ -1,20 +1,11 @@
-<?php
-
-$user = 'ibrahimitani';
-$pass = 'Changeme90.';
-$db = 'cs3500_StoreDB';
-
-$db = new mysqli('localhost', $user, $pass, $db) or die ("Unable to connect");
-
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <body>
 <?php include 'header.php'; ?>
+
+
+
 <div class="container">  <!-- Main Div content container -->
     <div class="row">  <!-- Main content row -->
         <div class="col-md-3">  <!-- start left navigation rail column -->
@@ -90,21 +81,10 @@ $db = new mysqli('localhost', $user, $pass, $db) or die ("Unable to connect");
                     while($pull_data = $sql_display_four->fetch_assoc()) {
                         echo '<div class="col-md-3"><div class="list-group"><a href="SingleGame.php?id='. $pull_data['ProductID'] .'"><img class="img-thumbnail" src="images/Covers/'.$pull_data['ImagePath'].'" alt="random image">'.'</a></div></div>';
                     }
-//                    $files = glob("images/randomImages/*.*");
-//                  for ($i = 0; $i < 4; $i++) {
-//                        $pic = $files[array_rand($files)];
-//                        echo '<div class="col-md-3"><div class="list-group"><a href="SingleGame.php"><img class="img-thumbnail" src="'.$pic.'" alt="random image">'.'</a></div></div>';
-//                 }
-//                    ?>
+                    ?>
 
                 </div>
             </div>
-
-
-
-
-
-
 
 
                 </div>  <!-- end main content column -->
