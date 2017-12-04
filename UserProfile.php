@@ -34,24 +34,8 @@ $getUserInfo = mysqli_query($db, "SELECT * FROM `User` WHERE `UID` = '". $_SESSI
 $pull_info = $getUserInfo->fetch_assoc();
 
 
-
-//$getFirstName = mysqli_query($db,"SELECT * FROM `User` where `UID` = '". $pull_data['FirstName'] ."';");
-//$pull_data2 = $getFirstName->fetch_assoc();
-
-//$getEmail = mysqli_query($db,"SELECT * FROM `User` WHERE Email = '". $pull_data['Email'] ."';");
-//$pull_data3 = $getEmail->fetch_assoc();
-//
-//$getRegDate = mysqli_query($db,"SELECT * FROM `User` WHERE DateOfRegistration = '". $pull_data['DateOfRegistration'] ."';");
-//$pull_data4 = $getRegDate->fetch_assoc();
-//
-//$getPhone = mysqli_query($db,"SELECT * FROM `User` WHERE Phone = '". $pull_data['Phone'] ."';");
-//$pull_data5 = $getPhone->fetch_assoc();
-//
-//$getGiftCard = mysqli_query($db,"SELECT * FROM `User` WHERE GiftCardBalance = '". $pull_data['GiftCardBalance'] ."';");
-//$pull_data6 = $getGiftCard->fetch_assoc();
-
-
-
+$getReview = mysqli_query($db,"SELECT * FROM `ProductReview` WHERE  UID = '". $pull_info['UID'] ."';");
+$pul_review = $getReview->fetch_assoc();
 
 
 $getProdID = mysqli_query($db,"SELECT * FROM `ProductRating` WHERE  UID = '". $pull_info['UID'] ."';");
@@ -59,6 +43,12 @@ $pull_data7 = $getProdID->fetch_assoc();
 
 $getRating = mysqli_query($db,"SELECT DISTINCT ProductID FROM `ProductRating` where uid = ". $pull_info['UID'] .";");
 $pull_data8 = $getRating->fetch_assoc();
+
+$getFav = mysqli_query($db,"SELECT DISTINCT ProductID FROM `ProductFavorite` where UID = ". $pull_info['UID'] .";");
+$pull_Fav = $getFav->fetch_assoc();
+
+
+
 
 
 ?>
@@ -101,9 +91,11 @@ $pull_data8 = $getRating->fetch_assoc();
 
                                     <li class="list-group-item"><strong class="text-primary">Last Name</strong><br><?php echo utf8_encode($pull_info['LastName']); ?></li>
 
-                                    <li class="list-group-item"><strong class="text-primary">Address</strong><br> </li>
+                                    <li class="list-group-item"><strong class="text-primary">Address</strong><br><?php echo utf8_encode($pull_info['Address']); ?> </li>
 
-                                    <li class="list-group-item"><strong class="text-primary">City, Country</strong><br> </li>
+                                    <li class="list-group-item"><strong class="text-primary">City</strong><br><?php echo utf8_encode($pull_info['City']); ?> </li>
+
+                                    <li class="list-group-item"><strong class="text-primary">Country</strong><br><?php echo utf8_encode($pull_info['Country']); ?> </li>
 
                                     <li class="list-group-item"><strong class="text-primary">Phone</strong><br><?php echo $pull_info['Phone']; ?></li>
 
@@ -117,8 +109,9 @@ $pull_data8 = $getRating->fetch_assoc();
                                 <div class="panel-heading"><h4>User Activity</h4></div>
                                 <ul class="list-group">
                                     <li class="list-group-item"><strong class="text-primary">Recent Purchases</strong><br></li>
-                                    <li class="list-group-item"><strong class="text-primary">Product Reviews</strong><br> 3 Reviews</li>
+                                    <li class="list-group-item"><strong class="text-primary">Products Reviewed</strong><br><?php echo mysqli_num_rows($getReview); ?> </li>
                                     <li class="list-group-item"><strong class="text-primary">Products Rated</strong><br><?php echo mysqli_num_rows($getRating); ?> </li>
+                                    <li class="list-group-item"><strong class="text-primary">Favorite Products</strong><br><?php echo mysqli_num_rows($getFav); ?></li>
                                     <li class="list-group-item"><strong class="text-primary">Gift Card Balance</strong><br><span class="label label-warning ">$ <?php echo $pull_info['GiftCardBalance']; ?></span></li>
                                 </ul>
                             </div>
