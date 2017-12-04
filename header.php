@@ -1,10 +1,6 @@
 <?php
 session_start();
-
-$user = 'root';
-$pass = '';
-$db = 'cs3500_StoreDB';
-
+include 'dbinfo.php';
 $db = new mysqli('localhost', $user, $pass, $db) or die ("Unable to connect");
 
 

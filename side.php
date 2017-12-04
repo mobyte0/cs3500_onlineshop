@@ -3,12 +3,7 @@
 //GROUP BY ProductID
 //HAVING AVG(Rating) > 4.0
 // this will be used for rating games based on weighted average
-
-
-$user = 'root';
-$pass = '';
-$db = 'cs3500_StoreDB';
-
+include 'dbinfo.php';
 $db = new mysqli('localhost', $user, $pass, $db) or die ("Unable to connect");
 
 $query_favorite = mysqli_query($db, "SELECT AVG(Rating) AS AVG_RATING, ProductID FROM ProductRating GROUP BY ProductID HAVING AVG(Rating) > 4.0 LIMIT 9");
