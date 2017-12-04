@@ -9,6 +9,6 @@ if(isset($_SESSION['username'])) {
     echo $_SESSION['username'];
 } else {
     echo 'log out succes';
-    header('Location: home.php' );
+    header('Location: index.php' );
 }
 ?>
