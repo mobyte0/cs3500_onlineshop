@@ -13,56 +13,164 @@
 
     <script src="bootstrap3/assets/js/html5shiv.js"></script>
     <script src="bootstrap3/assets/js/respond.min.js"></script>
+    <style>
+        .desc {
+            font-size: 1.3em;
 
+        }
+        .make_bold {
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
 
 <?php include 'header.php'; ?>
+
 <?php
+    if(isset($_SESSION['UID'])) {
+        if(isset($_POST['DoneEditing'])) {
+            $delete_all = "DELETE FROM `UserShoppingCart` WHERE UID = " . $_SESSION['UID'] . ";";
+
+
+            if($db->query($delete_all) === TRUE) {
+
+            } else {
+                header("Location: error.php");
+                exit();
+            }
+            // delete all from table sql statement
+            // since its delete all its going to delete everything from shoppping cart for this UID
+            // delete all from table where uid is == session uid
+
+
+        } else if(isset($_POST['CustomEdit'])) {
+            // this is for the checkboxes to delete by selection
+            // if everything except delete all was returned you only have update units in cart in db else you would have to remove the entire row from db
+            if(isset($_POST['QuantityDelete'])) {
+
+                $shopping_list_delete_selection = mysqli_query($db, "SELECT * FROM `UserShoppingCart` WHERE UID = ". $_SESSION['UID'].";");
+
+                while($get_values_list = $shopping_list_delete_selection->fetch_assoc()) {
+                    if($get_values_list['ProductID'] === $_POST['QuantityDelete']) {
+
+                    }
+
+                }
+                    if ($_POST['QuantityDelete'] === 'Delete All') {
+
+
+                    } else {
+
+                    }
+
+
+
+            }
+    //    WHERE UID = 25
+    //    AND ProductID = 1
+    //    UPDATE `UserShoppingCart`
+    //    SET UnitsInCart = 2
+
+
+
+
+    //        DELETE FROM `UserShoppingCart`
+    //        WHERE UID = 25
+    //        AND ProductID = 5
+
+
+
+        }
+    }
+?>
+<?php
+
+//SELECT DISTINCT * FROM `UserShoppingCart` ,`Product` WHERE `UserShoppingCart`.`ProductID` = `Product`.`ProductID` AND `UserShoppingCart`.UID = 25
     $flag = 0;
 
-    if(isset($_GET['addToCart'])) {
-        $sql = "INSERT INTO `UserShoppingCart` (UID, ProductID, UnitsInCart) VALUES ('" . $_SESSION['UID'] . "', '" . $_GET['addToCart'] . "' ,'1')";
+    if(isset($_POST['addToCart'])) {
+        $check_if_exists = mysqli_query($db, "SELECT * FROM `UserShoppingCart` WHERE UID = " . $_SESSION['UID'] . " AND ProductID = " . $_POST['addToCart'] . ";");
 
-        if ($db->query($sql) === TRUE) {
-            $flag = 1;
+        if (mysqli_num_rows($check_if_exists) > 0) {
+            // update
+            $pull_values = $check_if_exists->fetch_assoc();
+
+            $units = $pull_values['UnitsInCart'];
+
+            $units++;
+
+            $Update_Cart = "UPDATE UserShoppingCart SET UnitsInCart = " . $units . " WHERE UID = " . $_SESSION['UID'] . " AND ProductID = " . $_POST['addToCart'] . ";";
+
+            if ($db->query($Update_Cart) === TRUE) {
+                $flag = 1;
+            } else {
+                $flag = 0;
+            }
         } else {
-            $flag = 0;
+            // it doesnt exist so insert new data
+            $add_to_cart = "INSERT INTO `UserShoppingCart` (UID, ProductID, UnitsInCart) VALUES ('" . $_SESSION['UID'] . "', '" . $_POST['addToCart'] . "' ,'1')";
+
+
+            if ($db->query($add_to_cart) === TRUE) {
+                $flag = 1;
+            } else {
+                $flag = 0;
+            }
         }
     }
 ?>
 <div class="container">  <!-- start main content container -->
-    <div class="row">  <!-- start main content row -->
-        <div class="col-md-3">  <!-- start left navigation rail column -->
+      <!-- start main content row -->
+    <div class="container" style="padding-top: 1em; padding-bottom: 1em;">
+        <p class="h2"><?php echo $_SESSION['username'] ?>'s Shopping List!<a href="EditShoppingList.php" class="btn btn-info pull-right" style="font-size: 0.4em;">Edit Shopping List</a></p>
+    </div>
+    <div class="container">
+          <?php
+              $get_shopping_list = mysqli_query($db, "SELECT * FROM UserShoppingCart, Product WHERE UserShoppingCart.ProductID = Product.ProductID AND UID = " . $_SESSION['UID']. ";");
+            $total_price = 0;
 
-        </div>  <!-- end left navigation rail -->
-
-        <div class="col-md-12">
-
-
-            <h1>Shopping Cart</h1>
-            <?php
-                if(isset($_GET['addToCart'])) {
-                    if ($flag === 1) {
-                        echo '<div class="col-md-12"><h1 class="label label-warning h1">Added to Shopping Cart!</h1></div>';
-                    }
-                }
-            ?>
-
-
-            <div class="well">
-                <div class="row">
-
-
-
-
+              while ($pull_search_games = $get_shopping_list->fetch_assoc()) {
+                  $total_price += ($pull_search_games['Price'] * $pull_search_games['UnitsInCart']);
+                  echo '<div class="well">'.
+                      '<div class="row">' .
+                      '<div class="col-md-9">'.
+                      '<div class="col-md-3">'.
+                      '<div class="list-group" style="background: white;">'.
+                      '<a href="SingleGame.php?id='. $pull_search_games['ProductID'] .'">'.
+                      '<img class="img-thumbnail" src="images/Covers/' . $pull_search_games['ImagePath'] . '" alt="random image">'.
+                      '</a>'.
+                      '</div>'.
+                      '</div>'.
+                      '<div class="col-md-6">'.
+                      '<p class="desc"><span class="label label-primary">Title:</span>   '. $pull_search_games['Name'].'</p>'.
+                      '<p class="desc"<span style="font-weight: bold;">Price:</span><span class="label label-warning">  $ '. $pull_search_games['Price'].'  Per Unit</span></p>'.
+                      '<p class="desc"><span class="make_bold">Platform:</span>  '. $pull_search_games['Platform'].'</p>'.
+                      '<p class="desc"><span class="make_bold">Quantity:</span>  '. $pull_search_games['UnitsInCart'].'</p>'.
+                      '</div>'.
+                      '</div>'.
+                      '</div>'.
+                      '</div>';
+              }
+          ?>
+        <div class="pull-right col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <p style="font-size: 1.9em;">Total Price: <span class="label label-success pull-right" style="font-size: 1em;"> $ <?php echo $total_price; ?></span></p>
                 </div>
             </div>
-
-
-        </div>  <!-- end main content column -->
-    </div>  <!-- end main content row -->
+        </div>
+        <div class="col-md-12" style="margin-bottom: 1em;">
+            <div class="col-md-6">
+                <a class="btn btn-block btn-primary" href="home.php"><span class="glyphicon glyphicon-backward"></span> Continue Shopping</a>
+            </div>
+            <div class="col-md-6">
+                <a class="btn btn-block btn-warning" href="CheckOutProcess.php">CheckOut <span class="glyphicon glyphicon-forward"></span> </a>
+            </div>
+        </div>
+    </div>
+         <!-- end main content row -->
 </div>   <!-- end main content container -->
 
 <?php include 'footer.php'; ?>

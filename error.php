@@ -35,16 +35,10 @@
          </div>  <!-- end left navigation rail --> 
 
          <div class="col-md-9">  <!-- start main content column -->
-           <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Browse</a></li>
-            <li class="active">Error</li>
-         </ol>          
-
          <div class="jumbotron">
             <h1>Error</h1>
-            <p>Unknown or missing Id</p>
-            <p><a href="index.php" class="btn btn-warning btn-lg">Go back home &raquo;</a></p>
+            <p>Error resulted from failed request!</p>
+            <p><a href="home.php" class="btn btn-warning btn-lg">Go back home &raquo;</a></p>
          </div>   
 
 

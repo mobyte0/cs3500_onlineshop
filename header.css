@@ -1,5 +1,5 @@
 
-/* Modal Content/Box */
+      /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
@@ -15,10 +15,6 @@
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-}
-
-#topHeaderRow .container {
-    margin-top: 10px;
 }
 
 .cancelbtn {

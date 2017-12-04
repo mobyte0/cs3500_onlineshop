@@ -1,6 +1,10 @@
 <?php
 session_start();
-include 'dbinfo.php';
+
+$user = 'root';
+$pass = '';
+$db = 'cs3500_StoreDB';
+
 $db = new mysqli('localhost', $user, $pass, $db) or die ("Unable to connect");
 
 
@@ -20,7 +24,7 @@ $if_error = 0;
 
 if(isset($_POST['username']) && isset($_POST['pwd'])) {
 
-    $query = mysqli_query($db, "SELECT * FROM `User` WHERE Username = '" . $_POST['username']. "' AND Password = '". $_POST['pwd'] ."';");
+    $query = mysqli_query($db, "SELECT * FROM `User` WHERE Username = '" . $_POST['username']. "' AND Password = '". sha1($_POST['pwd']) ."';");
     $name = $query->fetch_assoc();
 
     $number = mysqli_num_rows($query);
@@ -29,7 +33,7 @@ if(isset($_POST['username']) && isset($_POST['pwd'])) {
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['pwd'] = $_POST['pwd'];
         $_SESSION['UID'] = $name['UID'];
-        header("Location: index.php");
+        header("Location: home.php");
     } else {
 
         $if_error = -1;
@@ -50,7 +54,7 @@ if(isset($_POST['username']) && isset($_POST['pwd'])) {
 
     <link href="bootstrap3/dist/bootstrap-theme.css" rel="stylesheet">
     <link href="header.css" rel="stylesheet"/>
-
+    <link href="css/modal_single_game.css" rel="stylesheet"/>
     <script src="bootstrap3/assets/js/html5shiv.js"></script>
     <script src="bootstrap3/assets/js/respond.min.js"></script>
     <script src="js/jquery-1.5.js"></script>
@@ -65,6 +69,10 @@ if(isset($_POST['username']) && isset($_POST['pwd'])) {
             }
         };
     </script>
+    <style>
+        img:hover{ opacity: 0.7;  }
+
+    </style>
 </head>
 <header>
    <div id="topHeaderRow">
@@ -73,14 +81,22 @@ if(isset($_POST['username']) && isset($_POST['pwd'])) {
             <ul class="list-inline">
                 <?php
                     if(isset($_SESSION['username']) && isset($_SESSION['pwd'])) {
-                        echo '<li>Welcome <a href="UserProfile.php">'. $pull_data['FirstName'] .' '. $pull_data['LastName'] .'</a></li><li><a href="LogOut.php">Log Out</a></li>';
+                        echo '<li><span class="glyphicon glyphicon-user"></span>  Welcome  <a href="UserProfile.php">'. $pull_data['FirstName'] .' '. $pull_data['LastName'] .'</a></li><li><a href="LogOut.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>';
                     } else {
                         echo '<li><a href="SignUp.php"><span class="glyphicon glyphicon-edit"></span> Sign Up</a></li><li> <a href="login.php">Log In</a></li>';
                     }
                 ?>
+                <?php
+                if(isset($_SESSION['UID'])){
+                    echo '<li><a href="ShoppingCart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</a></li>';
+                }else{
+
+                }
+
+                ?>
 
 
-                <li><a href="ShoppingCart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</a></li>
+
             </ul>
          </div>
       </div>
@@ -99,15 +115,15 @@ if(isset($_POST['username']) && isset($_POST['pwd'])) {
            </div>
              <div>
                  <ul>
-             <li class="navbar-brand list-unstyled" ><a href="index.php"><img title="home" style="width: 60px; height: 60px;" src="images/Logo.jpg" title="logo" align="logo"/> </a></li>
+             <li class="navbar-brand list-unstyled" ><a href="home.php"><img title="home" style="width: 60px; height: 60px;" src="images/Logo.jpg" title="logo" align="logo"/> </a></li>
                  </ul>
              </div>
            <div class="navbar-collapse collapse">
              <ul class="nav navbar-nav">
-                 <li style="margin-top: 1em;" ><a href="index.php"> Home</a></li>
-                 <li style="margin-top: 1em;"><a href="Consoles.php">Consoles</a></li>
-                 <li style="margin-top: 1em;"><a href="VideoGames.php">Video Games</a></li>
-                 <li style="margin-top:1em;"><a href="FavoriteGames.php">Favorite Games</a></li>
+                 <li style="margin-top: 1em;" ><a href="home.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                 <li style="margin-top: 1em;"><a href="Consoles.php"><span class="glyphicon glyphicon-sound-stereo"></span> Consoles</a></li>
+                 <li style="margin-top: 1em;"><a href="VideoGames.php"><span class="glyphicon glyphicon-floppy-disk"></span> Video Games</a></li>
+                 <li style="margin-top:1em;"><a href="FavoriteGames.php"><span class="glyphicon glyphicon-heart"></span> Favorite Games</a></li>
              </ul>
            </div><!-- end navbar collapse -->
 
