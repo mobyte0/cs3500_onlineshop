@@ -17,6 +17,10 @@
     box-sizing: border-box;
 }
 
+#topHeaderRow .container {
+    margin-top: 10px;
+}
+
 .cancelbtn {
     margin-bottom: 10px;
     margin-top:10px
