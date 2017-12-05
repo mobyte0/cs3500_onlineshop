@@ -38,7 +38,7 @@
          <div class="jumbotron">
             <h1>Error</h1>
             <p>Error resulted from failed request!</p>
-            <p><a href="home.php" class="btn btn-warning btn-lg">Go back home &raquo;</a></p>
+            <p><a href="index.php" class="btn btn-warning btn-lg">Go back home &raquo;</a></p>
          </div>   
 
 

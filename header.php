@@ -30,7 +30,7 @@ if(isset($_POST['username']) && isset($_POST['pwd'])) {
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['pwd'] = $_POST['pwd'];
         $_SESSION['UID'] = $name['UID'];
-        header("Location: home.php");
+        header("Location: index.php");
 
     } else {
 
@@ -113,12 +113,12 @@ if(isset($_POST['username']) && isset($_POST['pwd'])) {
            </div>
              <div>
                  <ul>
-             <li class="navbar-brand list-unstyled" ><a href="home.php"><img title="home" style="width: 60px; height: 60px;" src="images/Logo.jpg" title="logo" align="logo"/> </a></li>
+             <li class="navbar-brand list-unstyled" ><a href="index.php"><img title="home" style="width: 60px; height: 60px;" src="images/Logo.jpg" title="logo" align="logo"/> </a></li>
                  </ul>
              </div>
            <div class="navbar-collapse collapse">
              <ul class="nav navbar-nav">
-                 <li style="margin-top: 1em;" ><a href="home.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                 <li style="margin-top: 1em;" ><a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                  <li style="margin-top: 1em;"><a href="VideoGames.php"><span class="glyphicon glyphicon-floppy-disk"></span> Video Games</a></li>
                  <li style="margin-top:1em;"><a href="FavoriteGames.php"><span class="glyphicon glyphicon-heart"></span> Favorite Games</a></li>
              </ul>

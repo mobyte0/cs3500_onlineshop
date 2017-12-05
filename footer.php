@@ -14,7 +14,7 @@
             <h4>Links</h4>
             <nav>
                <ul class="nav nav-pills nav-stacked">
-                 <li><a href="home.php">Home</a></li>
+                 <li><a href="index.php">Home</a></li>
                  <li><a href="AboutUs.php">About</a></li>
                  <li><a href="#">Search</a></li>
                </ul>            

@@ -91,7 +91,7 @@
 
                 </div>
                 <div style="margin-bottom: 4em;">
-                    <a href="home.php" class="btn btn-block btn-danger">Cancel</a>
+                    <a href="index.php" class="btn btn-block btn-danger">Cancel</a>
                 </div>
             </div>
 
