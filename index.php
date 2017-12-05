@@ -31,21 +31,12 @@
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
                                     <img src="images/ps4.jpg" alt="..." style="width: 100%;">
-                                    <div class="carousel-caption">
-                                        Playstation 4
-                                    </div>
                                 </div>
                                 <div class="item">
                                     <img src="images/switch.png" alt="..." style="width: 100%;">
-                                    <div class="carousel-caption">
-                                        Nintendo Switch
-                                    </div>
                                 </div>
                                 <div class="item">
                                     <img src="images/xboxonex.jpg" alt="..." style="width: 100%;">
-                                    <div class="carousel-caption">
-                                        Xbox One X
-                                    </div>
                                 </div>
                             </div>
 
