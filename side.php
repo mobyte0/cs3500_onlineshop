@@ -4,10 +4,7 @@
 //HAVING AVG(Rating) > 4.0
 // this will be used for rating games based on weighted average
 
-
-$user = 'root';
-$pass = '';
-$db = 'cs3500_StoreDB';
+include 'dbinfo.php';
 
 $db = new mysqli('localhost', $user, $pass, $db) or die ("Unable to connect");
 

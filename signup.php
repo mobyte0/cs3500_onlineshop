@@ -25,7 +25,6 @@
 <?php
 date_default_timezone_set("UTC");
 
-
 $flag = 0;
 
 if(isset($_POST['SignUpBtn'])) {
