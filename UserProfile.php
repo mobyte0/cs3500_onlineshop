@@ -47,7 +47,8 @@ $pull_data8 = $getRating->fetch_assoc();
 $getFav = mysqli_query($db,"SELECT DISTINCT ProductID FROM `ProductFavorite` where UID = ". $pull_info['UID'] .";");
 $pull_Fav = $getFav->fetch_assoc();
 
-
+$get_Recent_Purchases = mysqli_query($db, "SELECT * FROM `OrderDetails` WHERE UID = '".$_SESSION['UID']."'");
+$pull_purchases = $get_Recent_Purchases->fetch_assoc();
 
 
 
@@ -108,7 +109,7 @@ $pull_Fav = $getFav->fetch_assoc();
                             <div class="panel panel-primary">
                                 <div class="panel-heading"><h4>User Activity</h4></div>
                                 <ul class="list-group">
-                                    <li class="list-group-item"><strong class="text-primary">Recent Purchases</strong><br></li>
+                                    <li class="list-group-item"><strong class="text-primary">Products Purchased</strong><br><?php echo mysqli_num_rows($get_Recent_Purchases) ?> </li>
                                     <li class="list-group-item"><strong class="text-primary">Products Reviewed</strong><br><?php echo mysqli_num_rows($getReview); ?> </li>
                                     <li class="list-group-item"><strong class="text-primary">Products Rated</strong><br><?php echo mysqli_num_rows($getRating); ?> </li>
                                     <li class="list-group-item"><strong class="text-primary">Favorite Products</strong><br><?php echo mysqli_num_rows($getFav); ?></li>

@@ -34,6 +34,7 @@ if(isset($_POST['username']) && isset($_POST['pwd'])) {
         $_SESSION['pwd'] = $_POST['pwd'];
         $_SESSION['UID'] = $name['UID'];
         header("Location: home.php");
+
     } else {
 
         $if_error = -1;
@@ -121,7 +122,6 @@ if(isset($_POST['username']) && isset($_POST['pwd'])) {
            <div class="navbar-collapse collapse">
              <ul class="nav navbar-nav">
                  <li style="margin-top: 1em;" ><a href="home.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-                 <li style="margin-top: 1em;"><a href="Consoles.php"><span class="glyphicon glyphicon-sound-stereo"></span> Consoles</a></li>
                  <li style="margin-top: 1em;"><a href="VideoGames.php"><span class="glyphicon glyphicon-floppy-disk"></span> Video Games</a></li>
                  <li style="margin-top:1em;"><a href="FavoriteGames.php"><span class="glyphicon glyphicon-heart"></span> Favorite Games</a></li>
              </ul>
