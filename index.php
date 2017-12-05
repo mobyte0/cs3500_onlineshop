@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<head>
+    <title>Oracle Game Store - Home</title>
+</head>
 <body>
 <?php include 'header.php'; ?>
 
