@@ -46,7 +46,7 @@ if(isset($_POST['username']) && isset($_POST['pwd'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Oracle game store</title>
+    <title>Oracle Game Store - Home</title>
 
     <link href="bootstrap3/dist/bootstrap.css" rel="stylesheet">
 

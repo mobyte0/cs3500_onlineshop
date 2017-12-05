@@ -15,7 +15,7 @@
             <nav>
                <ul class="nav nav-pills nav-stacked">
                  <li><a href="index.php">Home</a></li>
-                 <li><a href="AboutUs.php">About</a></li>
+                 <li><a href="about.php">About</a></li>
                  <li><a href="#">Search</a></li>
                </ul>            
             </nav>               
