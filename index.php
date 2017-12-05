@@ -72,7 +72,7 @@
             <?php
             $sql_display_four = mysqli_query($db, "SELECT * FROM `Product` ORDER BY RAND() LIMIT 8;");
             while ($pull_data = $sql_display_four->fetch_assoc()) {
-                echo '<div class="col-md-3"><div class="list-group"><a href="SingleGame.php?id=' . $pull_data['ProductID'] . '"><img class="img-thumbnail" src="images/Covers/' . $pull_data['ImagePath'] . '" alt="random image">' . '</a></div></div>';
+                echo '<div class="col-md-3 col-sm-4 col-xs-4"><div class="list-group"><a href="SingleGame.php?id=' . $pull_data['ProductID'] . '"><img class="img-thumbnail" src="images/Covers/' . $pull_data['ImagePath'] . '" alt="random image">' . '</a></div></div>';
             }
             ?>
 
