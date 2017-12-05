@@ -32,26 +32,37 @@
                             <div class="carousel-inner">
 
                                 <div class="item active">
-                                   <a href="images/ps4%20pro.jpg"> <img src="images/ps4%20pro.jpg" alt="PlayStation 4 Pro" style="width:100%;"></a>
+                                   <a href="VideoGames.php?console=PS4"> <img src="images/ps4%20pro.jpg" alt="PlayStation 4 Pro" style="width:100%;"></a>
                                     <div class="carousel-caption">
                                         <h3>PlayStation 4 Pro</h3>
-                                        <p>Sony's Current Generation Console!</p>
+                                        <p>Check Out PS4 Pro Games!!</p>
                                     </div>
                                 </div>
 
                                 <div class="item">
-                                    <img src="images/xboxonex.jpg" alt="XboxOne" style="width:100%;">
+                                    <a href="VideoGames.php?console=XBOX">
+                                        <img src="images/xboxonex.jpg" alt="XboxOne" style="width:100%;"></a>
                                     <div class="carousel-caption">
                                         <h3>Xbox One</h3>
-                                        <p>Microsoft's Current Generation Console</p>
+                                        <p>Check Out Xbox One X  Games!!</p>
                                     </div>
                                 </div>
 
                                 <div class="item">
-                                    <img src="images/nintendo_switch.png" alt="New York" style="width:100%;">
+                                    <a href="VideoGames.php?console=Nintendo+Switch">
+                                        <img src="images/nintendo_switch.png" alt="Nintendo" style="width:100%;"></a>
                                     <div class="carousel-caption">
                                         <h3>Nintendo Switch</h3>
-                                        <p>Nintendo's Current Generation Console</p>
+                                        <p>Play Your Games Anywhere with Nintendo Switch!!!</p>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <a href="VideoGames.php?console=PC">
+                                        <img src="images/steam.jpg" alt="Steam" style="width:100%;"></a>
+                                    <div class="carousel-caption">
+                                        <h3>Steam</h3>
+                                        <p>Take gaming to a whole new level with Steam</p>
                                     </div>
                                 </div>
 

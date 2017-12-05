@@ -14,7 +14,7 @@
 
             if (isset($_GET['id'])) {
 
-               $get_background = mysqli_query($db, "Select * from `Product` where `ProductID` = " . $_GET['id'] . ";");
+               $get_background = mysqli_query($db, "SELECT * FROM `Product` where `ProductID` = " . $_GET['id'] . ";");
 
                if(mysqli_num_rows($get_background) > 0) {
                    $pull_data = $get_background->fetch_assoc();

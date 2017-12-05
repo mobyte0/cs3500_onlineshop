@@ -11,7 +11,7 @@ $db = 'cs3500_StoreDB';
 
 $db = new mysqli('localhost', $user, $pass, $db) or die ("Unable to connect");
 
-$query_favorite = mysqli_query($db, "SELECT AVG(Rating) AS AVG_RATING, ProductID FROM ProductRating GROUP BY ProductID HAVING AVG(Rating) > 3.0 LIMIT 9");
+$query_favorite = mysqli_query($db, "SELECT AVG(Rating) AS AVG_RATING, ProductID FROM ProductRating GROUP BY ProductID HAVING AVG(Rating) > 3.0 LIMIT 12");
 $number_fav = mysqli_num_rows($query_favorite);
 
 $path_list = array();
@@ -38,16 +38,15 @@ while($count1 < sizeof($path_list)) {
 }
 
 
-
-
 ?>
 
          <div class="panel panel-info">
              <div class="panel-heading"><span class="glyphicon glyphicon-thumbs-up"></span> Popular Products</div>
            <ul class="list-group">               
-              <li class="list-group-item"><a href="#">Playstation 4</a></li>
-              <li class="list-group-item"><a href="#">Xbox One X</a></li>
-              <li class="list-group-item"><a href="#">Nintendo Switch</a></li>
+              <li class="list-group-item"><a href="VideoGames.php?console=PS4">Playstation 4</a></li>
+              <li class="list-group-item"><a href="VideoGames.php?console=XBOX">Xbox One X</a></li>
+              <li class="list-group-item"><a href="VideoGames.php?console=Nintendo+Switch">Nintendo Switch</a></li>
+               <li class="list-group-item"><a href="VideoGames.php?console=PC">PC</a></li>
            </ul>
          </div>  <!-- end continents panel -->  
          <div class="panel panel-info">
@@ -67,13 +66,30 @@ while($count1 < sizeof($path_list)) {
            </ul>
          </div>  <!-- end countries panel -->
 
+<?php
 
-        <div class="panel panel-info">
-            <div class="panel-heading"><span class="glyphicon glyphicon-credit-card"></span> Recent Purchases</div>
-            <ul class="list-group">
-                <li class="list-group-item"><a href="#">Overwatch</a></li>
-                <li class="list-group-item"><a href="#">Call Of Duty WW2</a></li>
-                <li class="list-group-item"><a href="#">Skyrim</a></li>
-                <li class="list-group-item"><a href="#">Uncharted 4</a></li>
-            </ul>
-        </div>  <!-- end continents panel -->
+if (isset($_SESSION['UID'])) {
+    date_default_timezone_set("UTC");
+
+    $date = date('Y-m-d H:i:s');
+
+
+    $query_Purchases = mysqli_query($db, "SELECT * FROM OrderDetails WHERE UID = ". $_SESSION['UID'] ." AND Date >= '2017-12-05 00:00:00' AND Date <= '2017-12-06 00:00:00' ORDER BY RAND() LIMIT 5;");
+
+    if(mysqli_num_rows($query_Purchases) !==0) {
+        echo '<div class="panel panel-info">' .
+            '<div class="panel-heading"><span class="glyphicon glyphicon-credit-card"></span> Recent Purchases</div><ul class="list-group">';
+    }
+
+    while($get_date = $query_Purchases->fetch_assoc()) {
+        $query_game = mysqli_query($db, "SELECT * FROM `Product` WHERE ProductID ='" . $get_date['ProductID'] . "';");
+        $get_game = $query_game->fetch_assoc();
+
+        echo '<li class="list-group-item"><a href="SingleGame.php?id=' . $get_game['ProductID'] . '">' . $get_game['Name'] . '</a></li>';
+    }
+    if(mysqli_num_rows($query_Purchases) !==0) {
+        echo '</ul></div>';
+    }
+}
+
+?>

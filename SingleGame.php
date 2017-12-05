@@ -12,6 +12,10 @@
         </div>  <!-- end left navigation rail -->
 
         <div class="col-md-9">  <!-- start main content column -->
+
+              <a style="margin-bottom: 10px" class="btn btn-primary" href="VideoGames.php"><span class=" glyphicon glyphicon-backward"></span> Back</a>
+
+
             <div class="well">
                 <div class="row">
 
@@ -259,7 +263,7 @@
                         echo '<div class="container">' .
                             '<div class="col-md-10" style="padding-right: 3em;">' .
                                 '<p style="margin-top: 2em;"><span class="label label-info" style="font-size: 1em;"><span class="glyphicon glyphicon-user"></span> Customer:</span>  ' . $pull_reviews['FirstName'] . ' ' . $pull_reviews['LastName'] . '   |   <span class="label label-warning">Would Buy Again:</span>  '. $buymeAgain  .'</p>'.
-                                '<div class="col-md-10 panel panel-info" style="height: 10em; background: ghostwhite;">'.
+                                '<div class="col-md-10 panel panel-info" style="height: 5em; background: ghostwhite;">'.
                                     '<p class="col-md-12" >'. $pull_reviews['ProductReviews'].'</p>'.
                                 '</div>'.
                             '</div>'
