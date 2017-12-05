@@ -90,7 +90,7 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="index.php">
                         <img class="img-responsive" alt="Oracle Game Store Logo" src="images/oraclelogo.jpg"
                              style="height: 20px;">
                     </a>
@@ -99,13 +99,13 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.php">Home <span class="sr-only">(current)</span></a></li>
-                        <li><a href="VideoGames.php">Games </a></li>
-                        <li><a href="FavoriteGames.php">Favorites</a></li>
+                        <li class="active"><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home <span class="sr-only">(current)</span></a></li>
+                        <li><a href="VideoGames.php"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Games</a></li>
+                        <li><a href="FavoriteGames.php"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Favorites</a></li>
                     </ul>
                     <form class="navbar-form navbar-right">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search" style="width: 300px;">
+                            <input type="text" class="form-control" placeholder="Search" style="width: 250px;">
                         </div>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
