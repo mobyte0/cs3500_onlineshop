@@ -71,7 +71,7 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
                         echo '<li><span class="glyphicon glyphicon-user"></span>  Welcome  <a href="UserProfile.php">' . $pull_data['FirstName'] . ' ' . $pull_data['LastName'] . '</a></li><li><a href="LogOut.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>';
                     } else {
 //                        echo '<li><a href="signup.php"><span class="glyphicon glyphicon-edit"></span> Sign Up</a></li><li> <a href="login.php">Log In</a></li>';
-                        echo '
+                        echo('
                         <li><a href="signup.php"><span class="glyphicon glyphicon-edit"></span> Register</a></li>
                         <li>
                         <div class="dropdown">
@@ -87,10 +87,8 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
                         </ul>
                         </div>
                         </li>
-                        ';
+                        ');
                     }
-                    ?>
-                    <?php
                     if (isset($_SESSION['UID'])) {
                         echo '<li><a href="ShoppingCart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</a></li>';
                     } // else {
