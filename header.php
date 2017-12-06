@@ -134,7 +134,7 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Search" style="width: 250px;">
                         </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
+                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
                     </form>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
