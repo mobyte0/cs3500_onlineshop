@@ -3,7 +3,7 @@ $errorMSG = "";
 
 /* NAME */
 if (empty($_POST["name"])) {
-    $errorMSG = "<li>Name is required</<li>";
+    $errorMSG = "<li>Name is required</li>";
 } else {
     $name = $_POST["name"];
 }
@@ -38,5 +38,3 @@ if(empty($errorMSG)){
 }
 
 echo json_encode(['code'=>404, 'msg'=>$errorMSG]);
-
-?>

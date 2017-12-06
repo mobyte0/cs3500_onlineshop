@@ -9,7 +9,7 @@
 
 <div class="container">
     <h1>Php Ajax Form Validation Example</h1>
-    <form role="form" id="contactForm" class="contact-form" data-toggle="validator" class="shake">
+    <form role="form" id="contactForm" class="contact-form shake" data-toggle="validator">
         <div class="alert alert-danger display-error" style="display: none">
         </div>
         <div class="form-group">
@@ -55,7 +55,7 @@
                 dataType: "json",
                 data: {name:name, email:email, msg_subject:msg_subject, message:message},
                 success : function(data){
-                    if (data.code == "200"){
+                    if (data.code === "200"){
                         alert("Success: " +data.msg);
                     } else {
                         $(".display-error").html("<ul>"+data.msg+"</ul>");
