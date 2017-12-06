@@ -35,17 +35,6 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
     <script src="bootstrap3/assets/js/html5shiv.js"></script>
     <script src="bootstrap3/assets/js/respond.min.js"></script>
     <script src="js/jquery-1.5.js"></script>
-    <script>
-        function countChar(val) {
-            var len = val.value.length;
-            if (len >= 250) {
-                val.value = val.value.substring(0, 250);
-                $('#charNum').text(0);
-            } else {
-                $('#charNum').text(250 - len);
-            }
-        }
-    </script>
     <style>
         img:hover {
             opacity: 0.7;
@@ -62,7 +51,7 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
                     if (isset($_SESSION['username']) && isset($_SESSION['pwd'])) {
                         echo '<li><span class="glyphicon glyphicon-user"></span>  Welcome  <a href="UserProfile.php">' . $pull_data['FirstName'] . ' ' . $pull_data['LastName'] . '</a></li><li><a href="LogOut.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>';
                     } else {
-                        echo '<li><a href="SignUp.php"><span class="glyphicon glyphicon-edit"></span> Sign Up</a></li><li> <a href="login.php">Log In</a></li>';
+                        echo '<li><a href="signup.php"><span class="glyphicon glyphicon-edit"></span> Sign Up</a></li><li> <a href="login.php">Log In</a></li>';
                     }
                     ?>
                     <?php
