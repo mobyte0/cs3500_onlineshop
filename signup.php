@@ -53,7 +53,10 @@ if (isset($_POST['SignUpBtn'])) {
                 <div class="panel-heading"><h3>Create Account</h3></div>
                 <div class="panel-body">
                     <div class="col-md-12">
-                        <form name="SignUpForm" action="signup.php" method="post">
+                        <div class="row" style="margin: auto; max-width: 300px;">
+                            <div class="alert alert-danger" id="form-error" style="display: none; background-image: none;"></div>
+                        </div>
+                        <form name="SignUpForm" action="signup.php" method="post" class="col-md-offset-2">
                             <div class="form-group" style="padding-bottom: 35px;">
                                 <div class="col-md-5">
                                     <input type="email" class="form-control" id="emailinput" placeholder="Email">
@@ -91,90 +94,79 @@ if (isset($_POST['SignUpBtn'])) {
                             </div>
                             <div class="form-group">
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control" id="addressinput" placeholder="City">
+                                    <input type="text" class="form-control" id="cityinput" placeholder="City">
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" id="addressinput" placeholder="Country">
+                                    <input type="text" class="form-control" id="countryinput" placeholder="Country">
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="tel" class="form-control" id="addressinput" placeholder="Phone Number">
+                                    <input type="tel" class="form-control" id="phoneinput" placeholder="Phone Number">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-6" style="margin-top: 20px;">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" id="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
-<!--                            <div class="form-row">-->
-<!--                                <div class="form-group col-md-6" style="padding-right: 20%">-->
-<!--                                    <input type="text" class="form-control" id="First Name" placeholder="First Name"-->
-<!--                                           name=" FirstName" required>-->
-<!--                                </div>-->
-<!---->
-<!--                                <div class="form-group col-md-6" style="padding-right: 20%">-->
-<!--                                    <input type="text" class="form-control" id="Last Name" placeholder="Last Name"-->
-<!--                                           name="LastName" required>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="form-row">-->
-<!--                                <div class="form-group col-md-6" style="padding-right: 20%">-->
-<!--                                    <input type="text" class="form-control" id="username" placeholder="Username"-->
-<!--                                           name="username" required>-->
-<!--                                </div>-->
-<!--                                <div class="form-group col-md-6" style="padding-right: 20%">-->
-<!--                                    <input type="email" class="form-control" id="email" placeholder="Email" name="email"-->
-<!--                                           required>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="form-row">-->
-<!--                                <div class="form-group col-md-6" style="padding-right: 20%">-->
-<!--                                    <input type="password" class="form-control" id="pwd" placeholder="Password"-->
-<!--                                           name="pwd" required>-->
-<!--                                </div>-->
-<!--                                <div class="form-group col-md-6" style="padding-right: 20%">-->
-<!--                                    <input type="password" class="form-control" id="pwd" placeholder="Password"-->
-<!--                                           name="pwd" required>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="form-row">-->
-<!--                                <div class="form-group col-md-6" style="padding-right: 20%;">-->
-<!--                                    <input type="text" class="form-control" id="address" placeholder="Address"-->
-<!--                                           name="address" required>-->
-<!--                                </div>-->
-<!--                                <div class="form-group col-md-6" style="padding-right: 20%">-->
-<!--                                    <input type="tel" class="form-control" id="phone" placeholder="Phone Number"-->
-<!--                                           name="phone" required>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="form-row">-->
-<!--                                <div class="form-group col-md-6" style="padding-right: 20%">-->
-<!--                                    <input type="text" class="form-control" id="city" placeholder="City" name="city"-->
-<!--                                           required>-->
-<!--                                </div>-->
-<!--                                <div class="form-group col-md-6" style="padding-right: 20%">-->
-<!--                                    <input type="text" class="form-control" id="country" placeholder="Country"-->
-<!--                                           name="country" required>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                    </div>-->
-<!--                    <div class="form-group col-md-6 ">-->
-<!--                        <button name="SignUpBtn" type="submit" class="btn btn-primary ">Submit</button>-->
-<!--                    </div>-->
-
-
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-
-</div>  <!-- end main content column -->
+    </div>  <!-- end main content column -->
 </div>  <!-- end main content row -->
 
-
 <?php include 'footer.php'; ?>
+<script type="text/javascript">
+    $(document).ready(function () {
 
+        $('#submit').click(function (e) {
+            e.preventDefault();
+
+            var emailinput = $("#emailinput").val();
+            var unameinput = $("#unameinput").val();
+            var firstname = $("#firstname").val();
+            var lastname = $("#lastname").val();
+            var passwd = $("#passwd").val();
+            var confpass = $("#confpass").val();
+            var addressinput = $("#addressinput").val();
+            var zipcode = $("#zipcode").val();
+            var stateinput = $("#stateinput").val();
+            var cityinput = $("#cityinput").val();
+            var countryinput = $("#countryinput").val();
+            var phoneinput = $("#phoneinput").val();
+            $.ajax({
+                type: "POST",
+                url: "processform.php",
+                dataType: "json",
+                data: {emailinput: emailinput,
+                unameinput: unameinput,
+                firstname: firstname,
+                lastname: lastname,
+                passwd: passwd,
+                confpass: confpass,
+                addressinput: addressinput,
+                zipcode: zipcode,
+                stateinput: stateinput,
+                cityinput: cityinput,
+                countryinput: countryinput,
+                phoneinput: phoneinput},
+                success: function (data) {
+                    if (data.code === 200) {
+                        // Success
+                        alert("Success: " + data.msg);
+                    } else {
+                        // invalid form
+                        $("#form-error").html("<ul>"+data.msg+"</ul>");
+                        $("#form-error").css("display","flex");
+                    }
+                }
+            });
+
+        });
+    });
+</script>
 
 </body>
 </html>

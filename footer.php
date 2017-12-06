@@ -10,9 +10,6 @@
                         <a href="FavoriteGames.php">Favorites</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="consoles.php">Consoles</a>
-                    </li>
-                    <li class="list-group-item">
                         <a href="VideoGames.php">Games</a>
                     </li>
                 </ul>
