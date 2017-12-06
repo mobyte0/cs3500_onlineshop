@@ -40,6 +40,25 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
             opacity: 0.7;
         }
 
+        #loginDropdown {
+            border: none;
+            background: none;
+            color: #428BCA;
+        }
+
+        #loginDropdown:hover {
+            color: #2a6496;
+            text-decoration: underline;
+        }
+
+        .loginForm {
+            width: 200px;
+            padding: 10px;
+        }
+
+        .loginForm div input:nth-child(1) {
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <header>
@@ -51,7 +70,24 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
                     if (isset($_SESSION['username']) && isset($_SESSION['pwd'])) {
                         echo '<li><span class="glyphicon glyphicon-user"></span>  Welcome  <a href="UserProfile.php">' . $pull_data['FirstName'] . ' ' . $pull_data['LastName'] . '</a></li><li><a href="LogOut.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>';
                     } else {
-                        echo '<li><a href="signup.php"><span class="glyphicon glyphicon-edit"></span> Sign Up</a></li><li> <a href="login.php">Log In</a></li>';
+//                        echo '<li><a href="signup.php"><span class="glyphicon glyphicon-edit"></span> Sign Up</a></li><li> <a href="login.php">Log In</a></li>';
+                        echo '
+                        <li><a href="signup.php"><span class="glyphicon glyphicon-edit"></span> Register</a></li>
+                        <li>
+                        <div class="dropdown">
+                        <button type="button" id="loginDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="glyphicon glyphicon-user"></span> Log In</button>
+                        <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
+                        <form class="loginForm">
+                        <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Username">
+                        <input type="password" class="form-control" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                        </ul>
+                        </div>
+                        </li>
+                        ';
                     }
                     ?>
                     <?php
@@ -88,9 +124,13 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home <span class="sr-only">(current)</span></a></li>
-                        <li><a href="VideoGames.php"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Games</a></li>
-                        <li><a href="FavoriteGames.php"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Favorites</a></li>
+                        <li class="active"><a href="index.php"><span class="glyphicon glyphicon-home"
+                                                                     aria-hidden="true"></span> Home <span
+                                        class="sr-only">(current)</span></a></li>
+                        <li><a href="VideoGames.php"><span class="glyphicon glyphicon-floppy-disk"
+                                                           aria-hidden="true"></span> Games</a></li>
+                        <li><a href="FavoriteGames.php"><span class="glyphicon glyphicon-star"
+                                                              aria-hidden="true"></span> Favorites</a></li>
                     </ul>
                     <form class="navbar-form navbar-right">
                         <div class="form-group">
