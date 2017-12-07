@@ -129,7 +129,7 @@ if (empty($errorMSG)) {
                 $cityinput = "City: " . $countryinput = "Country: " . $phoneinput = "Phone: ";
     echo json_encode(['code' => 200, 'msg' => $msg]);
     date_default_timezone_set("UTC");
-    $loaddb = new PDO("mysql:host=".$host.";dbname="."$db", $user, $pass);
+    $loaddb = new PDO("mysql:host=".$host.";dbname=".$db, $user, $pass);
     $query = $loaddb->query("INSERT INTO `User` (Username, Password, Email, Phone, Address, Zipcode, State, City, Country, DateOfRegistration, FirstName, LastName, GiftCardBalance) VALUES ('" . $_POST['unameinput'] . "', '" . sha1($_POST['passwd']) . "', '" . $_POST['emailinput'] . "', '" . $_POST['phoneinput'] . "', '" . $_POST['addressinput'] . "', '" . $_POST['zipcode']  . "', '" . $_POST['stateinput'] . "', '" . $_POST['cityinput'] . "', '" . $_POST['countryinput'] . "','" . date('Y-m-d H:i:s') . "', '" . $_POST['firstname'] . "', '" . $_POST['lastname'] . "','500')");
     die();
 }

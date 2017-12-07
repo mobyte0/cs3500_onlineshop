@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 include 'dbinfo.php';
 $db = new mysqli('localhost', $user, $pass, $db) or die ("Unable to connect");
 if (isset($_SESSION['username']) && $_SESSION['pwd']) {
@@ -32,6 +32,7 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
     <link href="bootstrap3/dist/bootstrap-theme.css" rel="stylesheet">
     <link href="header.css" rel="stylesheet"/>
     <link href="css/modal_single_game.css" rel="stylesheet"/>
+
     <script src="bootstrap3/assets/js/html5shiv.js"></script>
     <script src="bootstrap3/assets/js/respond.min.js"></script>
     <script src="js/jquery-1.5.js"></script>
@@ -69,31 +70,30 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
                     <?php
                     if (isset($_SESSION['username']) && isset($_SESSION['pwd'])) {
                         echo '<li><span class="glyphicon glyphicon-user"></span>  Welcome  <a href="UserProfile.php">' . $pull_data['FirstName'] . ' ' . $pull_data['LastName'] . '</a></li><li><a href="LogOut.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>';
-                    } else {
+                    } else if (!isset($_SESSION['username'])) {
 //                        echo '<li><a href="signup.php"><span class="glyphicon glyphicon-edit"></span> Sign Up</a></li><li> <a href="login.php">Log In</a></li>';
-                        echo('
-                        <li><a href="signup.php"><span class="glyphicon glyphicon-edit"></span> Register</a></li>
-                        <li>
-                        <div class="dropdown">
-                        <button type="button" id="loginDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="glyphicon glyphicon-user"></span> Log In</button>
-                        <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
-                        <form class="loginForm">
-                        <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Username">
-                        <input type="password" class="form-control" placeholder="Password">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                        </ul>
-                        </div>
-                        </li>
-                        ');
+                        echo('<li><a href="signup.php"><span class="glyphicon glyphicon-edit"></span> Register</a></li><li>');
+                        echo('<div class="dropdown">');
+                        echo('<button type="button" id="loginDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="glyphicon glyphicon-user"></span> Log In</button>');
+                        echo('<ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">');
+//                        echo('<form class="loginForm" method="post" action="userhome.php">');
+//                        echo('<div class="form-group">');
+//                        echo('<input type="text" class="form-control" placeholder="Username" placeholder="Username"/>');
+//                        echo('<input type="password" class="form-control" placeholder="Password" placeholder="password"/>');
+//                        echo('</div>');
+//                        echo('<input type="submit" class="btn btn-primary"/>');
+                        echo('<form class="loginForm" method="POST" action="userhome.php"/>');
+                        echo('<div class="form-group">');
+                        echo('<input name="username" type="text" class="form-control" placeholder="Username"/>');
+                        echo('<input name="password" type="password" class="form-control" placeholder="Password"/>');
+                        echo('</div>');
+                        echo('<input type="submit" class="btn btn-primary"/>');
+                        echo('</form>');
+                        echo('</ul></div></li>');
                     }
                     if (isset($_SESSION['UID'])) {
                         echo '<li><a href="ShoppingCart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</a></li>';
-                    } // else {
-                    //
-                    //                    }
+                    }
                     ?>
                 </ul>
             </div>
@@ -134,7 +134,8 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Search" style="width: 250px;">
                         </div>
-                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span>
+                        </button>
                     </form>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->

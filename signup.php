@@ -11,9 +11,10 @@
 
     <link href="bootstrap3/dist/bootstrap-theme.css" rel="stylesheet">
 
-    <script src="bootstrap3/assets/js/html5shiv.js"></script>
-    <script src="bootstrap3/assets/js/respond.min.js"></script>
 
+<!--        <script src="bootstrap3/assets/js/html5shiv.js"></script>-->
+<!--        <script src="bootstrap3/assets/js/respond.min.js"></script>-->
+<!--        <script src="js/jquery-1.5.js"></script>-->
 </head>
 
 <body>
@@ -155,6 +156,7 @@
                 success: function (data) {
                     if (data.code === 200) {
                         // Success
+                        // alert(data.msg);
                         window.location = "index.php";
                     } else {
                         // invalid form
@@ -168,5 +170,9 @@
     });
 </script>
 
+<script src="bootstrap3/dist/js/carousel.js"></script>
+<script src="bootstrap3/assets/js/jquery.js"></script>
+<script src="bootstrap3/dist/js/bootstrap.min.js"></script>
+<script src="bootstrap3/assets/js/holder.js"></script>
 </body>
 </html>
