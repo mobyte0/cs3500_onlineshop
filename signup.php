@@ -23,22 +23,22 @@
 
 
 <?php
-date_default_timezone_set("UTC");
-
-$flag = 0;
-
-if (isset($_POST['SignUpBtn'])) {
-    $sql = "INSERT INTO `User` (Username, Password, Email, Phone, Address, City, Country, DateOfRegistration, FirstName, LastName, GiftCardBalance) VALUES ('" . $_POST['username'] . "', '" . sha1($_POST['pwd']) . "', '" . $_POST['email'] . "', '" . $_POST['phone'] . "', '" . $_POST['address'] . "', '" . $_POST['city'] . "', '" . $_POST['country'] . "','" . date('Y-m-d H:i:s') . "', '" . $_POST['FirstName'] . "', '" . $_POST['LastName'] . "','500')";
-
-    if ($db->query($sql) === TRUE) {
-        $flag = 1;
-    } else {
-        $flag = 0;
-    }
-}
-
-
-?>
+//date_default_timezone_set("UTC");
+//
+//$flag = 0;
+//
+//if (isset($_POST['SignUpBtn'])) {
+//    $sql = "INSERT INTO `User` (Username, Password, Email, Phone, Address, City, Country, DateOfRegistration, FirstName, LastName, GiftCardBalance) VALUES ('" . $_POST['username'] . "', '" . sha1($_POST['pwd']) . "', '" . $_POST['email'] . "', '" . $_POST['phone'] . "', '" . $_POST['address'] . "', '" . $_POST['city'] . "', '" . $_POST['country'] . "','" . date('Y-m-d H:i:s') . "', '" . $_POST['FirstName'] . "', '" . $_POST['LastName'] . "','500')";
+//
+//    if ($db->query($sql) === TRUE) {
+//        $flag = 1;
+//    } else {
+//        $flag = 0;
+//    }
+//}
+//
+//
+//?>
 
 <div class="container">
 
@@ -56,7 +56,7 @@ if (isset($_POST['SignUpBtn'])) {
                         <div class="row" style="margin: auto; max-width: 300px;">
                             <div class="alert alert-danger" id="form-error" style="display: none; background-image: none;"></div>
                         </div>
-                        <form name="SignUpForm" action="signup.php" method="post" class="col-md-offset-2">
+                        <form method="post" class="col-md-offset-2">
                             <div class="form-group" style="padding-bottom: 35px;">
                                 <div class="col-md-5">
                                     <input type="email" class="form-control" id="emailinput" placeholder="Email">
@@ -155,7 +155,7 @@ if (isset($_POST['SignUpBtn'])) {
                 success: function (data) {
                     if (data.code === 200) {
                         // Success
-                        alert("Success: " + data.msg);
+                        window.location = "index.php";
                     } else {
                         // invalid form
                         $("#form-error").html("<ul>"+data.msg+"</ul>");

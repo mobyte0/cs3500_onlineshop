@@ -36,7 +36,7 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
     <script src="bootstrap3/assets/js/respond.min.js"></script>
     <script src="js/jquery-1.5.js"></script>
     <style>
-        img:hover {
+        .img-logo:hover {
             opacity: 0.7;
         }
 
@@ -114,7 +114,7 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="index.php">
-                        <img class="img-responsive" alt="Oracle Game Store Logo" src="images/oraclelogo.jpg"
+                        <img class="img-responsive img-logo" alt="Oracle Game Store Logo" src="images/oraclelogo.jpg"
                              style="height: 20px;">
                     </a>
                 </div>
