@@ -29,7 +29,7 @@ $loaddb = null;
 if (empty($_POST["unameinput"])) {
     $errorMSG .= "<li>Username is required</li>";
 } else if (!ctype_alnum($_POST['unameinput'])){
-    $errorMSG .= "<li>Invalid username</li>";
+    $errorMSG .= "<li>Invalid username. Please only use numbers and letters.</li>";
 } else if (!empty($usernamecheck)) {
     $errorMSG .= "<li>Username is already used</li>";
 } else {
@@ -57,6 +57,8 @@ if (empty($_POST['lastname'])) {
 /* PASSWORD */
 if (empty($_POST['passwd'])) {
     $errorMSG .= "<li>Password is required</li>";
+} else if (!ctype_alnum($_POST['passwd'])){
+    $errorMSG .= "<li>Invalid password. Please only use numbers and letters.</li>";
 } else if (empty($_POST['confpass'])) {
     $errorMSG .= "<li>Password must be confirmed</li>";
 } else {
