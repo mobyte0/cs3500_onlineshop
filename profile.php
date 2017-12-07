@@ -115,7 +115,7 @@ $pull_purchases = $query->fetchAll();
                                     <li class="list-group-item"><strong class="text-primary">Products Reviewed</strong><br><?php echo count($pul_review); ?> </li>
                                     <li class="list-group-item"><strong class="text-primary">Products Rated</strong><br><?php echo count($pull_data8); ?> </li>
                                     <li class="list-group-item"><strong class="text-primary">Favorite Products</strong><br><?php echo count($pull_Fav); ?></li>
-                                    <li class="list-group-item"><strong class="text-primary">Gift Card Balance</strong><br><span class="label label-warning ">$ <?php echo $pull_info['GiftCardBalance']; ?></span></li>
+                                    <li class="list-group-item"><strong class="text-primary">Gift Card Balance</strong><br><span class="label label-warning ">&curren; <?php echo $pull_info['GiftCardBalance']; ?></span></li>
                                 </ul>
                             </div>
                         </div>

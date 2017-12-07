@@ -58,7 +58,7 @@
                                     $display_rating = mysqli_query($db,"SELECT * FROM `ProductRating` WHERE ProductID = '". $rating . "';" );
                                     $pull_data2 = $display_rating->fetch_assoc();
 
-                                echo '<li class="list-group-item">Price: $'. $pull_data['Price'].'</li>'.
+                                echo '<li class="list-group-item">Price: &curren; '. $pull_data['Price'].'</li>'.
                                     '<li class="list-group-item">Platform: '. $pull_data['Platform'].'</li>'.
                                         '<li class="list-group-item">Weight: '. $pull_data['Weight'].' oz</li>'.
                                         '<li class="list-group-item">Dimensions: '. $pull_data['Dimension'].' mm</li>';
