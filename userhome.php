@@ -20,9 +20,30 @@ window.location.href='index.php';
 } else {
     echo($_POST['username']);
     include "dbinfo.php";
-    $loaddb = new PDO("mysql:host=".$host.";dbname=".$db, $user, $pass);
-    $query = $loaddb->query("SELECT * FROM User where Username LIKE '" . $_POST['username'] ."'");
+    $loaddb = new PDO("mysql:host=" . $host . ";dbname=" . $db, $user, $pass);
+    $query = $loaddb->query("SELECT * FROM User WHERE Username LIKE '" . $_POST['username'] . "'");
     $query->execute();
     $usernamecheck = $query->fetch();
-    echo '<pre>'; print_r($usernamecheck); echo '</pre>';
+    $loaddb = null;
+    $validlogin = 0;
+    if (sha1($_POST['password']) === $usernamecheck['Password']) {
+        $validlogin = 1;
+    }
+    if (empty($usernamecheck)) {
+        echo("<script>
+    alert('Incorrect username and/or password.');
+    window.location.href='index.php';
+    </script>;");
+        die();
+    }
+    if ($validlogin === 0) {
+        echo("<script>
+    alert('Incorrect username and/or password.');
+    window.location.href='index.php';
+    </script>;");
+        die();
+    }
+    echo '<pre>';
+    print_r($usernamecheck);
+    echo '</pre>';
 }
