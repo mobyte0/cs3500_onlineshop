@@ -43,7 +43,7 @@
                                 if(mysqli_num_rows($get_shopping_list) === 0) {
                                     echo '<script type="text/javascript">
                                           alert("Shopping Cart Empty Please Add A Product")
-                                          ;window.location.href="VideoGames.php";</script>';
+                                          ;window.location.href="games.php";</script>';
 
 
                                 }

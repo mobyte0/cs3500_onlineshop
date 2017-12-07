@@ -7,10 +7,10 @@
                 </div>
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <a href="FavoriteGames.php">Favorites</a>
+                        <a href="favorites.php">Favorites</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="VideoGames.php">Games</a>
+                        <a href="games.php">Games</a>
                     </li>
                 </ul>
             </div>

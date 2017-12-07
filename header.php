@@ -119,13 +119,25 @@ $if_error = 0;
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.php"><span class="glyphicon glyphicon-home"
+                        <li <?php
+                        if (basename($_SERVER['SCRIPT_FILENAME']) == 'index.php') {
+                            echo("class='active'");
+                        }
+                        ?>><a href="index.php"><span class="glyphicon glyphicon-home"
                                                                      aria-hidden="true"></span> Home <span
                                         class="sr-only">(current)</span></a></li>
-                        <li><a href="VideoGames.php"><span class="glyphicon glyphicon-floppy-disk"
-                                                           aria-hidden="true"></span> Games</a></li>
-                        <li><a href="FavoriteGames.php"><span class="glyphicon glyphicon-star"
-                                                              aria-hidden="true"></span> Favorites</a></li>
+                        <li <?php
+                        if (basename($_SERVER['SCRIPT_FILENAME']) == 'games.php') {
+                            echo("class='active'");
+                        }
+                        ?>><a href="games.php"><span class="glyphicon glyphicon-floppy-disk"
+                                                      aria-hidden="true"></span> Games</a></li>
+                        <li <?php
+                        if (basename($_SERVER['SCRIPT_FILENAME']) == 'favorites.php') {
+                            echo("class='active'");
+                        }
+                        ?>><a href="favorites.php"><span class="glyphicon glyphicon-star"
+                                                          aria-hidden="true"></span> Favorites</a></li>
                     </ul>
                     <form class="navbar-form navbar-right">
                         <div class="form-group">

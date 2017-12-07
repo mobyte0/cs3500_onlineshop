@@ -13,7 +13,7 @@
 
         <div class="col-md-9">  <!-- start main content column -->
 
-              <a style="margin-bottom: 10px" class="btn btn-primary" href="VideoGames.php"><span class=" glyphicon glyphicon-backward"></span> Back</a>
+              <a style="margin-bottom: 10px" class="btn btn-primary" href="games.php"><span class=" glyphicon glyphicon-backward"></span> Back</a>
 
 
             <div class="well">
