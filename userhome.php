@@ -18,7 +18,6 @@ window.location.href='index.php';
     </script>;");
     die();
 } else {
-    echo($_POST['username']);
     include "dbinfo.php";
     $loaddb = new PDO("mysql:host=" . $host . ";dbname=" . $db, $user, $pass);
     $query = $loaddb->query("SELECT * FROM User WHERE Username LIKE '" . $_POST['username'] . "'");
@@ -43,7 +42,11 @@ window.location.href='index.php';
     </script>;");
         die();
     }
-    echo '<pre>';
-    print_r($usernamecheck);
-    echo '</pre>';
+    session_start();
+    $_SESSION['username'] = $_POST['username'];
+    $_SESSION['UID'] = $usernamecheck['UID'];
+    echo("<script>
+    window.location.href='index.php';
+    </script>;");
+    die();
 }

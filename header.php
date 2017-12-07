@@ -1,25 +1,25 @@
 <?php
-//session_start();
+session_start();
 include 'dbinfo.php';
 $db = new mysqli('localhost', $user, $pass, $db) or die ("Unable to connect");
-if (isset($_SESSION['username']) && $_SESSION['pwd']) {
+if (isset($_SESSION['username'])) {
     $query = mysqli_query($db, "SELECT * FROM `User` WHERE Username = '" . $_SESSION['username'] . "';");
     $pull_data = $query->fetch_assoc();
 }
 $if_error = 0;
-if (isset($_POST['username']) && isset($_POST['pwd'])) {
-    $query = mysqli_query($db, "SELECT * FROM `User` WHERE Username = '" . $_POST['username'] . "' AND PASSWORD = '" . sha1($_POST['pwd']) . "';");
-    $name = $query->fetch_assoc();
-    $number = mysqli_num_rows($query);
-    if ($number > 0) {
-        $_SESSION['username'] = $_POST['username'];
-        $_SESSION['pwd'] = $_POST['pwd'];
-        $_SESSION['UID'] = $name['UID'];
-        header("Location: index.php");
-    } else {
-        $if_error = -1;
-    }
-}
+//if (isset($_POST['username']) && isset($_POST['pwd'])) {
+//    $query = mysqli_query($db, "SELECT * FROM `User` WHERE Username = '" . $_POST['username'] . "' AND PASSWORD = '" . sha1($_POST['pwd']) . "';");
+//    $name = $query->fetch_assoc();
+//    $number = mysqli_num_rows($query);
+//    if ($number > 0) {
+//        $_SESSION['username'] = $_POST['username'];
+////        $_SESSION['pwd'] = $_POST['pwd'];
+//        $_SESSION['UID'] = $name['UID'];
+//        header("Location: index.php");
+//    } else {
+//        $if_error = -1;
+//    }
+//}
 ?>
 <head>
     <meta http-equiv="Content-Type" content="text/html;  charset=UTF-8"/>
@@ -68,8 +68,8 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
             <div class="pull-right">
                 <ul class="list-inline">
                     <?php
-                    if (isset($_SESSION['username']) && isset($_SESSION['pwd'])) {
-                        echo '<li><span class="glyphicon glyphicon-user"></span>  Welcome  <a href="UserProfile.php">' . $pull_data['FirstName'] . ' ' . $pull_data['LastName'] . '</a></li><li><a href="LogOut.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>';
+                    if (isset($_SESSION['username'])) {
+                        echo '<li><span class="glyphicon glyphicon-user"></span>  Welcome  <a href="profile.php">' . $pull_data['FirstName'] . ' ' . $pull_data['LastName'] . '</a></li><li><a href="LogOut.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>';
                     } else if (!isset($_SESSION['username'])) {
 //                        echo '<li><a href="signup.php"><span class="glyphicon glyphicon-edit"></span> Sign Up</a></li><li> <a href="login.php">Log In</a></li>';
                         echo('<li><a href="signup.php"><span class="glyphicon glyphicon-edit"></span> Register</a></li><li>');
@@ -91,7 +91,7 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
                         echo('</form>');
                         echo('</ul></div></li>');
                     }
-                    if (isset($_SESSION['UID'])) {
+                    if (isset($_SESSION['username'])) {
                         echo '<li><a href="ShoppingCart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</a></li>';
                     }
                     ?>

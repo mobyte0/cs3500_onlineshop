@@ -49,7 +49,7 @@
 
 
                     <?php
-                        if(isset($_SESSION['UID']) && isset($_SESSION['username']) && isset($_SESSION['pwd'])) {
+                        if(isset($_SESSION['UID']) && isset($_SESSION['username'])) {
                             $query = mysqli_query($db, "SELECT * FROM `ProductFavorite`, `Product` where `ProductFavorite`.`UID` = ". $_SESSION['UID'] ." AND `Product`.`ProductID` = `ProductFavorite`.`ProductID`");
 
 
