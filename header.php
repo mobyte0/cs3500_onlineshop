@@ -69,7 +69,7 @@ $if_error = 0;
                 <ul class="list-inline">
                     <?php
                     if (isset($_SESSION['username'])) {
-                        echo '<li><span class="glyphicon glyphicon-user"></span>  Welcome  <a href="profile.php">' . $pull_data['FirstName'] . ' ' . $pull_data['LastName'] . '</a></li><li><a href="LogOut.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>';
+                        echo '<li><span class="glyphicon glyphicon-user"></span>  Welcome  <a href="profile.php">' . $pull_data['FirstName'] . ' ' . $pull_data['LastName'] . '</a></li><li>Balance: &curren; '.$pull_data['GiftCardBalance'].'</li><li><a href="ShoppingCart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</a></li><li><a href="LogOut.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>';
                     } else if (!isset($_SESSION['username'])) {
 //                        echo '<li><a href="signup.php"><span class="glyphicon glyphicon-edit"></span> Sign Up</a></li><li> <a href="login.php">Log In</a></li>';
                         echo('<li><a href="signup.php"><span class="glyphicon glyphicon-edit"></span> Register</a></li><li>');
@@ -90,9 +90,6 @@ $if_error = 0;
                         echo('<input type="submit" class="btn btn-primary"/>');
                         echo('</form>');
                         echo('</ul></div></li>');
-                    }
-                    if (isset($_SESSION['username'])) {
-                        echo '<li><a href="ShoppingCart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</a></li>';
                     }
                     ?>
                 </ul>
