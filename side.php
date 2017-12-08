@@ -71,7 +71,7 @@ if (isset($_SESSION['UID'])) {
     $date = date('Y-m-d H:i:s');
 
 
-    $query_Purchases = mysqli_query($db, "SELECT * FROM OrderDetails WHERE UID = ". $_SESSION['UID'] ." AND Date >= '2017-12-05 00:00:00' AND Date <= '2017-12-06 00:00:00' ORDER BY RAND() LIMIT 5;");
+    $query_Purchases = mysqli_query($db, "SELECT * FROM OrderDetails WHERE UID = ". $_SESSION['UID'] ." AND Date >= '2017-12-05 00:00:00' LIMIT 9;");
 
     if(mysqli_num_rows($query_Purchases) !==0) {
         echo '<div class="panel panel-info">' .
