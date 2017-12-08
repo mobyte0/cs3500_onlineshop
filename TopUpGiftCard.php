@@ -73,7 +73,7 @@
                                 $sql_add_funds = "UPDATE `User` SET GiftCardBalance = " . ($pull_Balance['GiftCardBalance'] + $_POST['NewBalance']) . " WHERE UID = " . $_SESSION['UID'] . ";";
 
                                 if($db->query($sql_add_funds) === TRUE) {
-                                    echo '<script>window.log.href("home.php");</script>';
+                                    echo '<script>window.log.href("index.php");</script>';
                                 } else {
                                     echo '<script>window.log.href("error.php");</script>';
                                 }
