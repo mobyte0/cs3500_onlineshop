@@ -205,7 +205,7 @@
                 <div class="row">
                     <div style="padding-top: 15px" class="col-md-12">
                         <div class="panel panel-info">
-                            <div class="panel-heading">Game play images:</div>
+                            <div class="panel-heading">Gameplay Images:</div>
                             <div class="panel-body">
             <?php
             if(isset($_GET['id'])) {

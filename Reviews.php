@@ -36,7 +36,7 @@ if(isset($_POST['Reviews'])) {
 
         $sql_add_to_reviews = 0;
     if(mysqli_num_rows($check_if_rating_review_exits) === 0) {
-        $sql_add_to_reviews = "INSERT INTO `ProductReview` (`UID`, `ProductID`, `WouldBuyAgain`, `ProductReviews`) VALUES (" . $_SESSION['UID'] . " , " . $_SESSION['PID'] . ",". $buyAgain .", '".$_POST['message'] ."' );";
+        $sql_add_to_reviews = "INSERT INTO `ProductReview` (`UID`, `ProductID`, `WouldBuyAgain`, `ProductReviews`) VALUES (" . $_SESSION['UID'] . " , " . $_SESSION['PID'] . ",". $buyAgain .", '". filter_var($_POST['message'], FILTER_SANITIZE_STRING) ."' );";
     } else {
         header("Location: error.php");
         exit();
