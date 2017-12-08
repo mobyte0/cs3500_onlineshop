@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <?php
 
+    ?>
+</head>
 <body>
-
+<?php
+if (isset($_POST['pid'])) {
+    include "dbinfo.php";
+    $loaddb = new PDO("mysql:host=".$host.";dbname="."$db", $user, $pass);
+    $query = $loaddb->query("INSERT INTO ProductFavorite (UID, ProductID) VALUES ('".$_POST['uid']."', '".$_POST['pid']."')");
+}
+?>
 <?php include 'header.php'; ?>
 
 <div class="container">  <!-- start main content container -->
@@ -96,15 +106,15 @@
                                             if (mysqli_num_rows($check_if_favorite_exists) === 0) {
 
                                                 echo '<li class="list-group-item">' .
-                                                    '<form method="post" action="AddToFavorites.php">' .
+                                                    '<form method="post" action="SingleGame.php?id='.$_SESSION['PID'].'"><input type="hidden" name="pid" value="'. $_SESSION['PID'] .'"><input type="hidden" name="uid" value="'. $_SESSION['UID'] .'">' .
                                                     '<button class="btn btn-block btn-info" name="favbtn" type="submit" title="Add To Favorites"><span class="glyphicon glyphicon-heart"></span> Add to Favorites</button>' .
                                                     '</form>' .
                                                     '</li>';
                                             } else {
                                                 echo '<li class="list-group-item">' .
-                                                    '<form method="post" action="AddToFavorites.php">' .
+//                                                    '<form method="post" action="AddToFavorites.php">' .
                                                     '<button disabled class="btn btn-block btn-info" name="favbtn" type="submit" title="Add To Favorites"><span class="glyphicon glyphicon-heart"></span> Add to Favorites</button>' .
-                                                    '</form>' .
+//                                                    '</form>' .
                                                     '</li>';
                                             }
 
