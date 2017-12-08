@@ -18,11 +18,11 @@ if (isset($_GET['confirm']) and isset($_SESSION['username'])){
         }
     } else {
         echo("<script>
-window.location.href='userhome.php';
+window.location.href='profile.php';
 </script>;");
     }
 } else {
     echo("<script>
-window.location.href='userhome.php';
+window.location.href='profile.php';
 </script>;");
 }

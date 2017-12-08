@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,8 +25,13 @@
 
 <body>
 
-<?php include 'header.php'; ?>
 <?php
+include 'header.php';
+if (!isset($_SESSION['username'])){
+    echo("<script>
+window.location.href='index.php';
+</script>;");
+}
 include "dbinfo.php";
 //echo '<pre>'; print_r($pul_review); echo '</pre>';
 $loaddb = new PDO("mysql:host=" . $host . ";dbname=" . $db, $user, $pass);

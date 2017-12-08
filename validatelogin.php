@@ -2,7 +2,7 @@
 session_start();
 if (isset($_SESSION['username'])){
     echo("<script>
-window.location.href='userhome.php';
+window.location.href='profile.php';
 </script>;");
 }
 if (!isset($_POST) or (($_POST['username'] === '') and ($_POST['password'] === ''))) {
@@ -53,7 +53,7 @@ window.location.href='index.php';
     $_SESSION['password'] = $_POST['password'];
     $_SESSION['UID'] = $usernamecheck['UID'];
     echo("<script>
-    window.location.href='userhome.php';
+    window.location.href='profile.php';
     </script>;");
     die();
 }

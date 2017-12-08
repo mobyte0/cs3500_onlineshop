@@ -120,12 +120,12 @@ $if_error = 0;
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li <?php
-                        if (basename($_SERVER['SCRIPT_FILENAME']) == 'index.php' or basename($_SERVER['SCRIPT_FILENAME']) == 'userhome.php') {
+                        if (basename($_SERVER['SCRIPT_FILENAME']) == 'index.php' or basename($_SERVER['SCRIPT_FILENAME']) == 'profile.php') {
                             echo("class='active'");
                         }
                         ?>><a href="<?php
                             if (isset($_SESSION['username'])){
-                                echo('userhome.php');
+                                echo('profile.php');
                             } else {
                                 echo('index.php');
                             }

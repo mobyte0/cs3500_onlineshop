@@ -313,7 +313,7 @@
                                  '<h4 style="margin-left: 1vw; margin-top: 5vw;">Write Review for <span class="label label-info">' . $pull_data['Name'] . '</span>:</h4>' .
                                  '<div class="container" style="padding-top: 10px">' .
                                      '<textarea class="col-md-8" id="field" onkeyup="countChar(this);" name="message" rows="10" cols="30" placeholder="Write your review." style="resize: vertical;"></textarea>' .
-                                 '<div style="margin-top: 1em;" class="col-md-12">Words left: <span id="charNum">250</span></div>' .
+//                                 '<div style="margin-top: 1em;" class="col-md-12">Words left: <span id="charNum">250</span></div>' .
                             '</div>' .
                               '<br>' .
                             '</div>' .
