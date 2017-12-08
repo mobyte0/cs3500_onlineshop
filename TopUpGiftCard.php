@@ -88,7 +88,7 @@
 
             <div class="col-md-12" style="margin-bottom: 1em;">
                 <div class="col-md-6">
-                    <a class="btn btn-block  btn-warning " href="home.php"><span class="glyphicon glyphicon-backward"></span> Go Back Home</a>
+                    <a class="btn btn-block  btn-warning " href="index.php"><span class="glyphicon glyphicon-backward"></span> Go Back Home</a>
                 </div>
                 <div class="col-md-6">
 
