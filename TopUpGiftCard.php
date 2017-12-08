@@ -71,11 +71,12 @@
                             if(isset($_POST['NewBalance'])) {
 
                                 $sql_add_funds = "UPDATE `User` SET GiftCardBalance = " . ($pull_Balance['GiftCardBalance'] + $_POST['NewBalance']) . " WHERE UID = " . $_SESSION['UID'] . ";";
-
                                 if($db->query($sql_add_funds) === TRUE) {
-                                    echo '<script>window.log.href("index.php");</script>';
+//                                    echo '<script>window.log.href("index.php");</script>';
+                                    echo("<script> window.location.href='index.php'");
                                 } else {
-                                    echo '<script>window.log.href("error.php");</script>';
+//                                    echo '<script>window.log.href("error.php");</script>';
+                                    echo("<script> window.location.href='error.php'");
                                 }
                             }
 
