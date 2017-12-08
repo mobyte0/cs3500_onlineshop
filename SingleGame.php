@@ -2,7 +2,20 @@
 <html lang="en">
 <head>
     <?php
-
+    if (!isset($_GET['id'])){
+        header("Location: index.php");
+    } else {
+        include "dbinfo.php";
+        $loaddb = new PDO("mysql:host=".$host.";dbname="."$db", $user, $pass);
+        $query = $loaddb->query("SELECT * FROM Product WHERE ProductID LIKE '". $_GET['id'] ."'");
+        $query->execute();
+        $validateid = $query->fetch();
+        if (empty($validateid)){
+            header("Location: index.php");
+        } else {
+            echo("<title>Oracle Game Store - ". $validateid['Name'] ."</title>");
+        }
+    }
     ?>
 </head>
 <body>
