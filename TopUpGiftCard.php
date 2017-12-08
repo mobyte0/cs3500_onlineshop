@@ -92,7 +92,7 @@
                 </div>
                 <div class="col-md-6">
 
-                    <a class="btn btn-block btn-primary" href="VideoGames.php">Continue Shopping <span class="glyphicon glyphicon-forward"></span> </a>
+                    <a class="btn btn-block btn-primary" href="games.php">Continue Shopping <span class="glyphicon glyphicon-forward"></span> </a>
                 </div>
             </div>
 
