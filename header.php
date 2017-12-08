@@ -145,10 +145,20 @@ $if_error = 0;
                         ?>><a href="favorites.php"><span class="glyphicon glyphicon-star"
                                                           aria-hidden="true"></span> Favorites</a></li>
                     </ul>
-                    <form class="navbar-form navbar-right">
+                    <form class="navbar-form navbar-right" method="POST" action="SearchQuery.php">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search" style="width: 250px;">
+                            <input type="text" class="form-control" name="search" placeholder="Search" style="width: 250px;">
                         </div>
+                        <!--                 <form method="post" action="SearchQuery.php">-->
+                        <!--                     <div class="input-group">-->
+                        <!--                         <input type="text" class="form-control" name="search" placeholder="Search Oracle...">-->
+                        <!--                         <span class="input-group-btn">-->
+                        <!--                             <button class="btn btn-warning" type="submit">-->
+                        <!--                                 <span class="glyphicon glyphicon-search"></span>-->
+                        <!--                             </button>-->
+                        <!--                         </span>-->
+                        <!--                     </div>-->
+                        <!--                 </form>-->
                         <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span>
                         </button>
                     </form>

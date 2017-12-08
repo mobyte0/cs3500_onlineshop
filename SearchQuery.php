@@ -47,7 +47,7 @@
                                         '</div>'.
                                         '<div class="col-md-6">'.
                                             '<p>Title: '. $pull_search_games['Name'].'</p>'.
-                                            '<p>Price: $ '. $pull_search_games['Price'].'</p>'.
+                                            '<p>Price: &curren; '. $pull_search_games['Price'].'</p>'.
                                             '<p>Platform: '. $pull_search_games['Platform'].'</p>'.
                                             '<p>Product Description: '. $pull_search_games['Description'].'</p>'.
 

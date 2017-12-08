@@ -189,7 +189,7 @@
                     <div class="panel panel-info">
                         <div class="panel-heading">Product Description</div>
                         <ul class="list-group">
-                            <li class="list-group-item">'. $pull_data['Description'].'</li>
+                            <li class="list-group-item">'. utf8_encode($pull_data['Description']).'</li>
                         </ul>
                     </div>
                     </div>';
