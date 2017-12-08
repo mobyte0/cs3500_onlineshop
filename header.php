@@ -76,13 +76,13 @@ $if_error = 0;
                         echo('<div class="dropdown">');
                         echo('<button type="button" id="loginDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="glyphicon glyphicon-user"></span> Log In</button>');
                         echo('<ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">');
-//                        echo('<form class="loginForm" method="post" action="userhome.php">');
+//                        echo('<form class="loginForm" method="post" action="validatelogin.php">');
 //                        echo('<div class="form-group">');
 //                        echo('<input type="text" class="form-control" placeholder="Username" placeholder="Username"/>');
 //                        echo('<input type="password" class="form-control" placeholder="Password" placeholder="password"/>');
 //                        echo('</div>');
 //                        echo('<input type="submit" class="btn btn-primary"/>');
-                        echo('<form class="loginForm" method="POST" action="userhome.php"/>');
+                        echo('<form class="loginForm" method="POST" action="validatelogin.php"/>');
                         echo('<div class="form-group">');
                         echo('<input name="username" type="text" class="form-control" placeholder="Username"/>');
                         echo('<input name="password" type="password" class="form-control" placeholder="Password"/>');
@@ -120,10 +120,16 @@ $if_error = 0;
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li <?php
-                        if (basename($_SERVER['SCRIPT_FILENAME']) == 'index.php') {
+                        if (basename($_SERVER['SCRIPT_FILENAME']) == 'index.php' or basename($_SERVER['SCRIPT_FILENAME']) == 'userhome.php') {
                             echo("class='active'");
                         }
-                        ?>><a href="index.php"><span class="glyphicon glyphicon-home"
+                        ?>><a href="<?php
+                            if (isset($_SESSION['username'])){
+                                echo('userhome.php');
+                            } else {
+                                echo('index.php');
+                            }
+                            ?>"><span class="glyphicon glyphicon-home"
                                                                      aria-hidden="true"></span> Home <span
                                         class="sr-only">(current)</span></a></li>
                         <li <?php

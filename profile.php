@@ -28,7 +28,6 @@
 
 <?php include 'header.php'; ?>
 <?php
-
 include "dbinfo.php";
 //echo '<pre>'; print_r($pul_review); echo '</pre>';
 $loaddb = new PDO("mysql:host=" . $host . ";dbname=" . $db, $user, $pass);
@@ -68,8 +67,22 @@ $pull_purchases = $query->fetchAll();
             <!-- Customer panel  -->
             <div class="panel panel-info">
                 <div class="panel-heading"><h4> <?php echo $pull_info['FirstName'].' '. $pull_info['LastName'] ?>'s Profile Page</h4></div>
-
                 <div class="panel-body">
+                    <?php
+                    if (isset($_POST['newpass'])) {
+                        $newpass = $_POST['newpass'];
+                        if (!ctype_alnum($newpass)) {
+                            echo('<div class="alert alert-danger" role="alert">Password must be alphanumeric.</div>');
+                        } else {
+                            include "dbinfo.php";
+                            $loaddb = new PDO("mysql:host=" . $host . ";dbname=" . $db, $user, $pass);
+                            $query = $loaddb->query("UPDATE User SET password = '". sha1($newpass) ."' WHERE Username LIKE '". $_SESSION['username'] . "'");
+                            $query->execute();
+                            $_SESSION['password'] = $newpass;
+                            echo('<div class="alert alert-success" role="alert">Password successfully changed.</div>');
+                        }
+                    }
+                    ?>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="panel panel-primary">
@@ -80,9 +93,14 @@ $pull_purchases = $query->fetchAll();
                                         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">
                                             <span class="glyphicon glyphicon-eye-open"></span> Show
                                         </button>
-                                        <div id="demo" class="d-inline collapse">
-                                        </div> </li>
+                                        <div id="demo" class="d-inline collapse"><?php echo $_SESSION['password'] ?>
+                                        </div> <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#changepass">Change</button>
+                                    <div id="changepass" class="d-inline collapse"><form action="profile.php" method="POST"><input type="password" name="newpass"><input type="submit" value="Submit"></form></div></li>
                                     <li class="list-group-item"><strong class="text-primary">Date Of Registration</strong><br> <?php echo utf8_encode($pull_info['DateOfRegistration']); ?> </li>
+                                    <li class="list-group-item"><strong class="text-primary">Delete Account</strong>
+                                    <button type="button" class="btn btn-danger">
+                                        Confirm
+                                    </button></li>
                                 </ul>
                             </div>
                         </div>
