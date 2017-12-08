@@ -4,7 +4,6 @@
 
 <?php include 'header.php'; ?>
 <?php
-
 // to display pictures with no filtering
 $display_all = mysqli_query($db,"Select * from `Product`;");
 
@@ -30,7 +29,7 @@ $display_console = mysqli_query($db, "SELECT DISTINCT Platform FROM `Product`");
             <h1>Video Games</h1>
 
 
-                    <form class="breadcrumb" method="GET" action="VideoGames.php">
+                    <form class="breadcrumb" method="GET" action="games.php">
 
                         <div class="row"> <!-- row div -->
                             <div class="col-md-4">

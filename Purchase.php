@@ -100,7 +100,7 @@
         <div class="col-md-9">  <!-- start main content column -->
             <div class="jumbotron">
                 <h2>Thank You For Your Purchase</h2>
-                <p><a href="home.php" class="btn btn-warning btn-lg">Go back home &raquo;</a></p>
+                <p><a href="index.php" class="btn btn-warning btn-lg">Go back home &raquo;</a></p>
             </div>
 
 

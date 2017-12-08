@@ -4,10 +4,7 @@
 //HAVING AVG(Rating) > 4.0
 // this will be used for rating games based on weighted average
 
-
-$user = 'root';
-$pass = '';
-$db = 'cs3500_StoreDB';
+include 'dbinfo.php';
 
 $db = new mysqli('localhost', $user, $pass, $db) or die ("Unable to connect");
 
@@ -43,10 +40,10 @@ while($count1 < sizeof($path_list)) {
          <div class="panel panel-info">
              <div class="panel-heading"><span class="glyphicon glyphicon-thumbs-up"></span> Popular Products</div>
            <ul class="list-group">               
-              <li class="list-group-item"><a href="VideoGames.php?console=PS4">Playstation 4</a></li>
-              <li class="list-group-item"><a href="VideoGames.php?console=XBOX">Xbox One X</a></li>
-              <li class="list-group-item"><a href="VideoGames.php?console=Nintendo+Switch">Nintendo Switch</a></li>
-               <li class="list-group-item"><a href="VideoGames.php?console=PC">PC</a></li>
+              <li class="list-group-item"><a href="games.php?console=PS4">Playstation 4</a></li>
+              <li class="list-group-item"><a href="games.php?console=XBOX">Xbox One X</a></li>
+              <li class="list-group-item"><a href="games.php?console=Nintendo+Switch">Nintendo Switch</a></li>
+               <li class="list-group-item"><a href="games.php?console=PC">PC</a></li>
            </ul>
          </div>  <!-- end continents panel -->  
          <div class="panel panel-info">

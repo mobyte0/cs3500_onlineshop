@@ -183,7 +183,7 @@
         </div>
         <div class="col-md-12" style="margin-bottom: 1em;">
             <div class="col-md-6">
-                <a class="btn btn-block btn-primary" href="VideoGames.php"><span class="glyphicon glyphicon-backward"></span> Continue Shopping</a>
+                <a class="btn btn-block btn-primary" href="games.php"><span class="glyphicon glyphicon-backward"></span> Continue Shopping</a>
             </div>
             <div class="col-md-6">
 

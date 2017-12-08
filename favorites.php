@@ -14,6 +14,21 @@
     <script src="bootstrap3/assets/js/html5shiv.js"></script>
     <script src="bootstrap3/assets/js/respond.min.js"></script>
 
+    <style>
+        .fav-delete {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            height: 35px;
+            width: 35px;
+            background-color: red;
+            color: white;
+            font-size: 20px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -49,12 +64,12 @@
 
 
                     <?php
-                        if(isset($_SESSION['UID']) && isset($_SESSION['username']) && isset($_SESSION['pwd'])) {
+                        if(isset($_SESSION['UID']) && isset($_SESSION['username'])) {
                             $query = mysqli_query($db, "SELECT * FROM `ProductFavorite`, `Product` where `ProductFavorite`.`UID` = ". $_SESSION['UID'] ." AND `Product`.`ProductID` = `ProductFavorite`.`ProductID`");
 
 
                             while($pull_games = $query->fetch_assoc()) {
-                                echo '<div class="col-md-3">' .
+                                echo '<div class="col-md-3">' . '<div class="fav-delete"><span class="glyphicon glyphicon-remove"></span></div>' .
                                     '<div class="list-group">' .
                                     '<a href="SingleGame.php?id=' . $pull_games['ProductID'] . '">' .
                                     '<img class="img-thumbnail" src="images/Covers/' . $pull_games['ImagePath'] . '" alt="random image">' .

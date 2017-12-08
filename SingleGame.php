@@ -13,7 +13,7 @@
 
         <div class="col-md-9">  <!-- start main content column -->
 
-              <a style="margin-bottom: 10px" class="btn btn-primary" href="VideoGames.php"><span class=" glyphicon glyphicon-backward"></span> Back</a>
+              <a style="margin-bottom: 10px" class="btn btn-primary" href="games.php"><span class=" glyphicon glyphicon-backward"></span> Back</a>
 
 
             <div class="well">
@@ -58,7 +58,7 @@
                                     $display_rating = mysqli_query($db,"SELECT * FROM `ProductRating` WHERE ProductID = '". $rating . "';" );
                                     $pull_data2 = $display_rating->fetch_assoc();
 
-                                echo '<li class="list-group-item">Price: $'. $pull_data['Price'].'</li>'.
+                                echo '<li class="list-group-item">Price: &curren; '. $pull_data['Price'].'</li>'.
                                     '<li class="list-group-item">Platform: '. $pull_data['Platform'].'</li>'.
                                         '<li class="list-group-item">Weight: '. $pull_data['Weight'].' oz</li>'.
                                         '<li class="list-group-item">Dimensions: '. $pull_data['Dimension'].' mm</li>';

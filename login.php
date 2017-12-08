@@ -34,7 +34,7 @@
     <div class="row">  <!-- start main content row -->
 
         <div class="col-md-12">
-            <img class="container" style="width:30%; height: 30%; margin-left:35% " src="images/Logo.jpg">
+            <img class="container" style="width:30%; height: 30%; margin-left:35% " src="images/oraclelogo.jpg">
         </div>
 
         <div class="col-md-12">  <!-- start main content column -->

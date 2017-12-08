@@ -29,29 +29,32 @@
 <?php include 'header.php'; ?>
 <?php
 
-$getUserInfo = mysqli_query($db, "SELECT * FROM `User` WHERE `UID` = '". $_SESSION['UID']."';");
+include "dbinfo.php";
+//echo '<pre>'; print_r($pul_review); echo '</pre>';
+$loaddb = new PDO("mysql:host=" . $host . ";dbname=" . $db, $user, $pass);
+$query = $loaddb->query("SELECT * FROM User WHERE UID LIKE '" . $_SESSION['UID'] . "'");
+$query->execute();
+$pull_info = $query->fetch();
 
-$pull_info = $getUserInfo->fetch_assoc();
+$query = $loaddb->query("SELECT * FROM ProductReview WHERE UID LIKE '" . $pull_info['UID'] . "'");
+$query->execute();
+$pul_review = $query->fetchAll();
 
+$query = $loaddb->query("SELECT * FROM ProductRating WHERE UID LIKE '" . $pull_info['UID'] . "'");
+$query->execute();
+$pull_data7 = $query->fetchAll();
 
-$getReview = mysqli_query($db,"SELECT * FROM `ProductReview` WHERE  UID = '". $pull_info['UID'] ."';");
-$pul_review = $getReview->fetch_assoc();
+$query = $loaddb->query("SELECT DISTINCT ProductID FROM ProductRating WHERE UID LIKE '" . $pull_info['UID'] . "'");
+$query->execute();
+$pull_data8 = $query->fetchAll();
 
+$query = $loaddb->query("SELECT DISTINCT ProductID FROM ProductFavorite WHERE UID LIKE '" . $pull_info['UID'] . "'");
+$query->execute();
+$pull_Fav = $query->fetchAll();
 
-$getProdID = mysqli_query($db,"SELECT * FROM `ProductRating` WHERE  UID = '". $pull_info['UID'] ."';");
-$pull_data7 = $getProdID->fetch_assoc();
-
-$getRating = mysqli_query($db,"SELECT DISTINCT ProductID FROM `ProductRating` where uid = ". $pull_info['UID'] .";");
-$pull_data8 = $getRating->fetch_assoc();
-
-$getFav = mysqli_query($db,"SELECT DISTINCT ProductID FROM `ProductFavorite` where UID = ". $pull_info['UID'] .";");
-$pull_Fav = $getFav->fetch_assoc();
-
-$get_Recent_Purchases = mysqli_query($db, "SELECT * FROM `OrderDetails` WHERE UID = '".$_SESSION['UID']."'");
-$pull_purchases = $get_Recent_Purchases->fetch_assoc();
-
-
-
+$query = $loaddb->query("SELECT * FROM OrderDetails WHERE UID LIKE '" . $_SESSION['UID'] . "'");
+$query->execute();
+$pull_purchases = $query->fetchAll();
 ?>
 <div class="container">
     <div class="row">  <!-- start main content row -->
@@ -78,7 +81,6 @@ $pull_purchases = $get_Recent_Purchases->fetch_assoc();
                                             <span class="glyphicon glyphicon-eye-open"></span> Show
                                         </button>
                                         <div id="demo" class="d-inline collapse">
-                                            <?php echo $_SESSION['pwd'];?>
                                         </div> </li>
                                     <li class="list-group-item"><strong class="text-primary">Date Of Registration</strong><br> <?php echo utf8_encode($pull_info['DateOfRegistration']); ?> </li>
                                 </ul>
@@ -109,11 +111,11 @@ $pull_purchases = $get_Recent_Purchases->fetch_assoc();
                             <div class="panel panel-primary">
                                 <div class="panel-heading"><h4>User Activity</h4></div>
                                 <ul class="list-group">
-                                    <li class="list-group-item"><strong class="text-primary">Products Purchased</strong><br><?php echo mysqli_num_rows($get_Recent_Purchases) ?> </li>
-                                    <li class="list-group-item"><strong class="text-primary">Products Reviewed</strong><br><?php echo mysqli_num_rows($getReview); ?> </li>
-                                    <li class="list-group-item"><strong class="text-primary">Products Rated</strong><br><?php echo mysqli_num_rows($getRating); ?> </li>
-                                    <li class="list-group-item"><strong class="text-primary">Favorite Products</strong><br><?php echo mysqli_num_rows($getFav); ?></li>
-                                    <li class="list-group-item"><strong class="text-primary">Gift Card Balance</strong><br><span class="label label-warning ">$ <?php echo $pull_info['GiftCardBalance']; ?></span></li>
+                                    <li class="list-group-item"><strong class="text-primary">Products Purchased</strong><br><?php echo count($pull_purchases) ?> </li>
+                                    <li class="list-group-item"><strong class="text-primary">Products Reviewed</strong><br><?php echo count($pul_review); ?> </li>
+                                    <li class="list-group-item"><strong class="text-primary">Products Rated</strong><br><?php echo count($pull_data8); ?> </li>
+                                    <li class="list-group-item"><strong class="text-primary">Favorite Products</strong><br><?php echo count($pull_Fav); ?></li>
+                                    <li class="list-group-item"><strong class="text-primary">Gift Card Balance</strong><br><span class="label label-warning ">&curren; <?php echo $pull_info['GiftCardBalance']; ?></span></li>
                                 </ul>
                             </div>
                         </div>

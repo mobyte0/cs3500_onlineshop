@@ -17,6 +17,14 @@
     box-sizing: border-box;
 }
 
+#topHeaderRow .container {
+    margin-top: 10px;
+}
+
+.main-navbar {
+    padding-top: 13px;
+}
+
 .cancelbtn {
     margin-bottom: 10px;
     margin-top:10px

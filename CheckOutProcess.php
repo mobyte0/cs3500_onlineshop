@@ -43,7 +43,7 @@
                                 if(mysqli_num_rows($get_shopping_list) === 0) {
                                     echo '<script type="text/javascript">
                                           alert("Shopping Cart Empty Please Add A Product")
-                                          ;window.location.href="VideoGames.php";</script>';
+                                          ;window.location.href="games.php";</script>';
 
 
                                 }
@@ -91,7 +91,7 @@
 
                 </div>
                 <div style="margin-bottom: 4em;">
-                    <a href="home.php" class="btn btn-block btn-danger">Cancel</a>
+                    <a href="index.php" class="btn btn-block btn-danger">Cancel</a>
                 </div>
             </div>
 
