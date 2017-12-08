@@ -98,9 +98,7 @@ $pull_purchases = $query->fetchAll();
                                     <div id="changepass" class="d-inline collapse"><form action="profile.php" method="POST"><input type="password" name="newpass"><input type="submit" value="Submit"></form></div></li>
                                     <li class="list-group-item"><strong class="text-primary">Date Of Registration</strong><br> <?php echo utf8_encode($pull_info['DateOfRegistration']); ?> </li>
                                     <li class="list-group-item"><strong class="text-primary">Delete Account</strong>
-                                    <button type="button" class="btn btn-danger">
-                                        Confirm
-                                    </button></li>
+                                    <form action="delete.php" method="GET"><input type="hidden" name="confirm" value="deleteAccount"><input type="submit" class="btn btn-danger" value="Confirm"></input></form></li>
                                 </ul>
                             </div>
                         </div>

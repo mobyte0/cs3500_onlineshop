@@ -2,7 +2,7 @@
 session_start();
 
 unset($_SESSION['username']);
-unset($_SESSION['pwd']);
+unset($_SESSION['password']);
 unset($_SESSION['UID']);
 unset($_SESSION['PID']);
 
